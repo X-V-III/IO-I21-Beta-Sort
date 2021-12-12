@@ -17,13 +17,13 @@ public class SortingApplication {
         SpringApplication.run(pl.put.poznan.sortingapp.app.SortingApplication.class, args);
         int[] arr = { 12, 11, 13, 5, 6, 7 };
 
-        System.out.println("Given Array");
+        System.out.println("Merge Sort Given Array");
         printArray(arr);
 
         MergeSort ob = new MergeSort();
         ob.sort(arr, 0, arr.length - 1);
 
-        System.out.println("\nSorted array");
+        System.out.println("\nMerge Sort Sorted array");
         printArray(arr);
     }
 }
