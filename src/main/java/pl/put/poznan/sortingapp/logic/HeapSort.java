@@ -47,7 +47,7 @@ public class HeapSort
     }
 
     // Sort Function
-    public static void sort(int []a0){
+    public static void sortHeap(int []a0){
         a=a0;
         buildheap(a);
 
@@ -58,11 +58,14 @@ public class HeapSort
         }
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
+
+        //Tablica do posortowania
         int []a1={10,9,8,7,6,5,4,3,2,1};
         sort(a1);
+
         for(int i=0;i<a1.length;i++){
             System.out.print(a1[i] + " ");
         }
-    }
+    }*/
 }
