@@ -1,6 +1,6 @@
 package pl.put.poznan.sortingapp.app;
 
-import pl.put.poznan.sortingapp.logic.MergeSort;
+import pl.put.poznan.sortingapp.logic.*;
 import static pl.put.poznan.sortingapp.logic.MergeSort.printArray;
 
 import org.springframework.boot.SpringApplication;
@@ -16,14 +16,38 @@ public class SortingApplication {
     {
         SpringApplication.run(pl.put.poznan.sortingapp.app.SortingApplication.class, args);
         int[] arr = { 12, 11, 13, 5, 6, 7 };
+        int[] arrHeap = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        int[] arrBubble = {3,2,1,5,1,2,6,6,8,4,9,12 ,0 ,34, 34,6,1,100};
 
+        //Merge Sort
         System.out.println("Merge Sort Given Array");
         printArray(arr);
 
         MergeSort ob = new MergeSort();
         ob.sort(arr, 0, arr.length - 1);
 
-        System.out.println("\nMerge Sort Sorted array");
+        System.out.println("\nMerge Sort Sorted Array");
         printArray(arr);
+
+
+        //HeapSort
+        System.out.println("\nHeap Sort Given Array");
+        printArray(arrHeap);
+
+        HeapSort obHeap = new HeapSort();
+        obHeap.sortHeap(arrHeap);
+
+        System.out.println("\nHeap Sort Sorted Array");
+        printArray(arrHeap);
+
+        //BubbleSort
+        System.out.println("\nBubble Sort Given Array");
+        printArray(arrBubble);
+
+        BubbleSort obBubble = new BubbleSort();
+        obBubble.sortBubble(arrBubble);
+
+        System.out.println("\nBubble Sort Sorted Array");
+        printArray(arrBubble);
     }
 }
