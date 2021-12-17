@@ -2,7 +2,7 @@ package pl.put.poznan.sortingapp.util;
 
 public class Utils {
     /**
-     * Prints array of int
+     * Prints an array of int
      * @param arr Array to print
      */
     public static void printArray(int[] arr) {

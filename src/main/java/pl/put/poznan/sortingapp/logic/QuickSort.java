@@ -2,20 +2,17 @@ package pl.put.poznan.sortingapp.logic;
 
 public class QuickSort {
 
-    public static void main(String[] args) {
+    /**
+     * Ta metoda otrzymuje tablicę liczb i dwie liczby całkowite, które odwołują się do pierwszej wartości i ostatniej
+     * @param numbers Unsorted array of integers
+     * @param izq ?
+     * @param der ?
+     * @throws IllegalArgumentException When given array is empty, throws IllegalArgumentException
+     */
+    public static void sort(int[] numbers, int izq, int der) throws IllegalArgumentException {
 
-        //Liczby do sortowania
-        int numbers [] = {10,9,8,7,6,5,4,3,2,1};
-
-        Quicksort(numbers, 0, numbers.length -1);
-
-        //Posortowana metoda druku wektorowego
-        vectorPrint(numbers);
-    }
-
-    /*Ta metoda otrzymuje tablicę liczb i dwie liczby całkowite, które odwołują się do pierwszej wartości i ostatniej. */
-    public static void Quicksort(int numbers[], int izq, int der)
-    {
+        // Throws an exception when arr is empty
+        if (numbers.length == 0) throw new IllegalArgumentException();
 
         //Pierwsza wartość jest przyjmowana jako oś obrotu
         int pivot = numbers[izq];
@@ -45,17 +42,9 @@ public class QuickSort {
         numbers[j] = pivot;
 
         if (izq < j-1)
-            Quicksort(numbers,izq,j-1);
+            sort(numbers,izq,j-1);
 
         if (j+1 < der)
-            Quicksort(numbers,j+1,der);
+            sort(numbers,j+1,der);
     }
-    public static void vectorPrint(int[] system)
-    {
-        for(int i = 0; i < system.length; i++)
-        {
-            System.out.println(system[i]);
-        }
-    }
-
 }

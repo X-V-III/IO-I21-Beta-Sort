@@ -2,9 +2,15 @@ package pl.put.poznan.sortingapp.logic;
 
 public class MergeSort
 {
-    // Merges two subarrays of arr[].
-    // First subarray is arr[l..m]
-    // Second subarray is arr[m+1..r]
+    /**
+     * Merges two subarrays of arr[]
+     * First subarray is arr[l..m]
+     * Second subarray is arr[m+1..r]
+     * @param arr Initial array
+     * @param l Left index
+     * @param m Middle index
+     * @param r Right index
+     */
     void merge(int[] arr, int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
@@ -55,10 +61,18 @@ public class MergeSort
         }
     }
 
-    // Main function that sorts arr[l..r] using
-    // merge()
-    public void sort(int[] arr, int l, int r)
-    {
+    /**
+     * Main function that sorts arr[l..r] using merge()
+     * @param arr Unsorted array of integers
+     * @param l Left index
+     * @param r Right indexx
+     * @throws IllegalArgumentException When given array is empty, throws IllegalArgumentException
+     */
+    public void sort(int[] arr, int l, int r) throws IllegalArgumentException {
+
+        // Throws an exception when arr is empty
+        if (arr.length == 0) throw new IllegalArgumentException();
+
         if (l < r) {
             // Find the middle point
             int m =l+ (r-l)/2;
@@ -71,15 +85,4 @@ public class MergeSort
             merge(arr, l, m, r);
         }
     }
-
-    /* A utility function to print array of size n */
-    public static void printArray(int[] arr)
-    {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
-        System.out.println();
-    }
-
-
 }
