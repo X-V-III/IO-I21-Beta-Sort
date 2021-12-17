@@ -9,7 +9,10 @@ public class HeapSort
     private static int right;
     private static int largest;
 
-    // Build-Heap Function
+    /**
+     * Build-Heap Function?
+     * @param a ?
+     */
     public static void buildheap(int []a){
         n=a.length-1;
         for(int i=n/2;i>=0;i--){
@@ -18,7 +21,11 @@ public class HeapSort
         }
     }
 
-    // Max-Heap Function
+    /**
+     * Max-Heap Function?
+     * @param a ?
+     * @param i ?
+     */
     public static void maxheap(int[] a, int i){
         left=2*i;
         right=2*i+1;
@@ -46,8 +53,16 @@ public class HeapSort
         a[j]=t;
     }
 
-    // Sort Function
-    public static void sortHeap(int []a0){
+    /**
+     * Sorts given array of integers with heap sort
+     * @param a0 Unsorted array of integers
+     * @throws IllegalArgumentException When given array is empty, throws IllegalArgumentException
+     */
+    public static void sort(int []a0) throws IllegalArgumentException {
+
+        // Throws an exception when arr is empty
+        if (a0.length == 0) throw new IllegalArgumentException();
+
         a=a0;
         buildheap(a);
 
@@ -57,15 +72,4 @@ public class HeapSort
             maxheap(a, 0);
         }
     }
-
-    /*public static void main(String[] args) {
-
-        //Tablica do posortowania
-        int []a1={10,9,8,7,6,5,4,3,2,1};
-        sort(a1);
-
-        for(int i=0;i<a1.length;i++){
-            System.out.print(a1[i] + " ");
-        }
-    }*/
 }
