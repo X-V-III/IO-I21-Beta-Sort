@@ -11,7 +11,7 @@ public class MergeSort
      * @param m Middle index
      * @param r Right index
      */
-    void merge(int[] arr, int l, int m, int r)
+    public static void merge(int[] arr, int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
         int n1 = m - l + 1;
@@ -68,7 +68,7 @@ public class MergeSort
      * @param r Right indexx
      * @throws IllegalArgumentException When given array is empty, throws IllegalArgumentException
      */
-    public void sort(int[] arr, int l, int r) throws IllegalArgumentException {
+    public static void sort(int[] arr, int l, int r) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
         if (arr.length == 0) throw new IllegalArgumentException();
