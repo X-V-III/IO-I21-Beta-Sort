@@ -17,7 +17,7 @@ public class SortingApplication {
         SpringApplication.run(pl.put.poznan.sortingapp.app.SortingApplication.class, args);
         int[] arr = { 12, 11, 13, 5, 6, 7 };
         int[] arrHeap = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-        int[] arrBubble = {3,2,1,5,1,2,6,6,8,4,9,12 ,0 ,34, 34,6,1,100};
+        int[] arrBubble = {3, 2, 1, 5, 1, 2, 6, 6, 8, 4, 9, 12, 0, 34, 34, 6, 1, 100};
 
         //Merge Sort
         System.out.println("Merge Sort Given Array");
