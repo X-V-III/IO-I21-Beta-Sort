@@ -18,6 +18,10 @@ public class SortingApplication {
         int[] arr = { 12, 11, 13, 5, 6, 7 };
         int[] arrHeap = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
         int[] arrBubble = {3,2,1,5,1,2,6,6,8,4,9,12 ,0 ,34, 34,6,1,100};
+        int[] arrQuick = { 24,5,3,35,14,23,19,43,2 };
+
+        int lowQuick = 0;
+        int highQuick = arrQuick.length - 1;
 
         //Merge Sort
         System.out.println("Merge Sort Given Array");
@@ -49,5 +53,15 @@ public class SortingApplication {
 
         System.out.println("\nBubble Sort Sorted Array");
         printArray(arrBubble);
+        
+        //QuickSort
+        System.out.println("\nQuick Sort Given Array");
+        printArray(arrQuick);
+
+        QuickSort obQuick = new QuickSort();
+        obQuick.sortQuick(arrQuick, lowQuick, highQuick);
+
+        System.out.println("\nQuick Sort Sorted Array");
+        printArray(arrQuick);
     }
 }
