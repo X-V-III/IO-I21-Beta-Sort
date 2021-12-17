@@ -1,61 +1,63 @@
 package pl.put.poznan.sortingapp.logic;
 
+import java.util.Arrays;
+
 public class QuickSort {
+    /**
+     * Sorts given array of integers with quick sort
+     * @param array Unsorted array of integers
+     * @param low First value
+     * @param high Last value
+     */
 
-    public static void main(String[] args) {
+    public static void sortQuick(int[] array, int low, int high) {
+        if (array.length == 0)
+            return;
 
-        //Liczby do sortowania
-        int numbers [] = {10,9,8,7,6,5,4,3,2,1};
+        if (low >= high)
+            return;
 
-        Quicksort(numbers, 0, numbers.length -1);
+        int middle = low + (high - low) / 2;
+        int opora = array[middle];
 
-        //Posortowana metoda druku wektorowego
-        vectorPrint(numbers);
-    }
-
-    /*Ta metoda otrzymuje tablicę liczb i dwie liczby całkowite, które odwołują się do pierwszej wartości i ostatniej. */
-    public static void Quicksort(int numbers[], int izq, int der)
-    {
-
-        //Pierwsza wartość jest przyjmowana jako oś obrotu
-        int pivot = numbers[izq];
-
-        //Zdefiniowano dwie strony i pomocnik
-        int i = izq;
-        int j = der;
-        int aux;
-
-        while(i<j)
-        {
-            while (numbers[i] <= pivot && i < j)
+        int i = low, j = high;
+        while (i <= j) {
+            while (array[i] < opora) {
                 i++;
+            }
 
-            while (numbers[j] > pivot)
+            while (array[j] > opora) {
                 j--;
+            }
 
-            if (i<j)
-            {
-                aux = numbers[i];
-                numbers[i]= numbers[j];
-                numbers[j]=aux;
+            if (i <= j) {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j--;
             }
         }
 
-        numbers[izq] = numbers[j];
-        numbers[j] = pivot;
+        if (low < j)
+            sortQuick(array, low, j);
 
-        if (izq < j-1)
-            Quicksort(numbers,izq,j-1);
-
-        if (j+1 < der)
-            Quicksort(numbers,j+1,der);
+        if (high > i)
+            sortQuick(array, i, high);
     }
-    public static void vectorPrint(int[] system)
-    {
-        for(int i = 0; i < system.length; i++)
-        {
-            System.out.println(system[i]);
-        }
-    }
+    /*
+     //Gives a quick demonstration on a sample array
+    public static void main(String[] args) {
+        int[] x = { 24,5,3,35,14,23,19,43,2 };
+        System.out.println("Given Array");
+        System.out.println(Arrays.toString(x));
 
+        int low = 0;
+        int high = x.length - 1;
+
+        quickSort(x, low, high);
+        System.out.println("Sorted Array");
+        System.out.println(Arrays.toString(x));
+    }
+    */
 }
