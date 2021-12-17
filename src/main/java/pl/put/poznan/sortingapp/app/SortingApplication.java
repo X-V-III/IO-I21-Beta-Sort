@@ -1,7 +1,7 @@
 package pl.put.poznan.sortingapp.app;
 
 import pl.put.poznan.sortingapp.logic.*;
-import static pl.put.poznan.sortingapp.logic.MergeSort.printArray;
+import static pl.put.poznan.sortingapp.util.Utils.printArray;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,45 +23,50 @@ public class SortingApplication {
         int lowQuick = 0;
         int highQuick = arrQuick.length - 1;
 
-        //Merge Sort
-        System.out.println("Merge Sort Given Array");
-        printArray(arr);
+        try {
+            //Merge Sort
+            System.out.println("Merge Sort Given Array");
+            printArray(arr);
 
-        MergeSort ob = new MergeSort();
-        ob.sort(arr, 0, arr.length - 1);
+            MergeSort ob = new MergeSort();
+            ob.sort(arr, 0, arr.length - 1);
 
-        System.out.println("\nMerge Sort Sorted Array");
-        printArray(arr);
+            System.out.println("\nMerge Sort Sorted Array");
+            printArray(arr);
 
+            //HeapSort
+            System.out.println("\nHeap Sort Given Array");
+            printArray(arrHeap);
 
-        //HeapSort
-        System.out.println("\nHeap Sort Given Array");
-        printArray(arrHeap);
+            HeapSort.sort(arrHeap);
 
-        HeapSort obHeap = new HeapSort();
-        obHeap.sortHeap(arrHeap);
+            System.out.println("\nHeap Sort Sorted Array");
+            printArray(arrHeap);
 
-        System.out.println("\nHeap Sort Sorted Array");
-        printArray(arrHeap);
+            //BubbleSort
+            System.out.println("\nBubble Sort Given Array");
+            printArray(arrBubble);
 
-        //BubbleSort
-        System.out.println("\nBubble Sort Given Array");
-        printArray(arrBubble);
+            BubbleSort.sort(arrBubble);
 
-        BubbleSort obBubble = new BubbleSort();
-        obBubble.sortBubble(arrBubble);
+            System.out.println("\nBubble Sort Sorted Array");
+            printArray(arrBubble);
 
-        System.out.println("\nBubble Sort Sorted Array");
-        printArray(arrBubble);
-        
-        //QuickSort
-        System.out.println("\nQuick Sort Given Array");
-        printArray(arrQuick);
+            //QuickSort
+            System.out.println("\nQuick Sort Given Array");
+            printArray(arrQuick);
 
-        QuickSort obQuick = new QuickSort();
-        obQuick.sortQuick(arrQuick, lowQuick, highQuick);
+            QuickSort.sort(arrQuick, lowQuick, highQuick);
 
-        System.out.println("\nQuick Sort Sorted Array");
-        printArray(arrQuick);
+            System.out.println("\nQuick Sort Sorted Array");
+            printArray(arrQuick);
+
+            //Empty list exception
+            InsertionSort.sort(new int[] {});
+        } catch (IllegalArgumentException e) {
+            System.out.println("\nGiven array is empty");
+            e.printStackTrace();
+        }
+
     }
 }
