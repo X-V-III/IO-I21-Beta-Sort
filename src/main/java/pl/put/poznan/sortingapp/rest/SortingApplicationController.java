@@ -33,7 +33,7 @@ public class SortingApplicationController {
         for (String algName : sr.getParameters()) {
             original = sr.getValues();
 
-            long time = System.currentTimeMillis();
+            long start = System.nanoTime();
 
             if (algName.equals("bubble")) {
                 BubbleSort.sortBubble(original);
@@ -42,9 +42,11 @@ public class SortingApplicationController {
             } else {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
-            time = System.currentTimeMillis() - time;
 
-            reports[i] = new Report(algName, time);
+            long finish = System.nanoTime();
+            long timeElapsed = finish - start;
+
+            reports[i] = new Report(algName, timeElapsed);
             i++;
         }
 
@@ -80,5 +82,3 @@ public class SortingApplicationController {
 
 
 }
-
-
