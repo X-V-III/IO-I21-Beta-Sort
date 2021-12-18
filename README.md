@@ -9,4 +9,5 @@ Zasady punktowania sprintu:
 https://docs.google.com/spreadsheets/d/e/2PACX-1vTn6j3M8pmGEzrsQk8mXse7lVHUdhYWkfxbkQiYI23rBtwM4N3bWw0qtupW-gesfCkcYasnZ-eEXl-F/pubhtml
 
 
-![Ostatni build workflow](https://github.com/X-V-III/IO-I21-Beta-Sort/actions/workflows/ci.yml)
+Od teraz każdy commit powoduje budowanie aplikacji, aby sprawdzić czy nie uszkodził on wcześniejszych funkcjonalności.
+![Ostatni build workflow](https://github.com/X-V-III/IO-I21-Beta-Sort/actions/workflows/ci.yml/badge.svg)
