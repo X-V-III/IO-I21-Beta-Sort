@@ -10,6 +10,7 @@ import pl.put.poznan.sortingapp.logic.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 
 @RestController
@@ -67,35 +68,14 @@ public class SortingApplicationController {
             i++;
         }
 
+        if(sr.isReversed()) {
+            int[] reversed = new int[original.length];
+            for(int j = 0; j < original.length; j++) {
+                reversed[j] = original[original.length - j - 1];
+            }
+            original = reversed;
+        }
+
         return new ResponseEntity<>(new SortResponse(original, reports), HttpStatus.OK);
     }
-
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String text,
-                      @RequestParam(value = "transforms", defaultValue = "upper,escape") String[] transforms) {
-
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
-
-        // perform the transformation, you should run your logic here, below is just a silly example
-
-        SortingApplication transformer = new SortingApplication();
-        return "Tymczasowy string do resta - get method";
-    }
-
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String post(@PathVariable String text,
-                       @RequestBody String[] transforms) {
-
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
-
-        // perform the transformation, you should run your logic here, below is just a silly example
-        SortingApplication transformer = new SortingApplication();
-        return "Tymczasowy string do resta - post method";
-    }
-
-
 }
