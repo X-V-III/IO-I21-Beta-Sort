@@ -2,6 +2,7 @@ package pl.put.poznan.sortingapp.rest;
 
 import java.util.ArrayList;
 
+
 public class SortRequest {
     private int[] values;
     private ArrayList<String> parameters;

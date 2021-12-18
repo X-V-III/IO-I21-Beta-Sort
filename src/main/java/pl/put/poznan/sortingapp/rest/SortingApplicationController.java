@@ -13,11 +13,17 @@ import java.util.Arrays;
 import java.util.Collections;
 
 
+/**
+ * Klasa implementujaca kontrole nad dzialaniem logiki REST.
+ * */
 @RestController
 public class SortingApplicationController {
 
     private static final Logger logger = LoggerFactory.getLogger(SortingApplicationController.class);
 
+    /**
+     * Metoda implementujaca reakcje na zadanie GET w protokole HTTP.
+     * */
     @GetMapping(path = "/sorted", consumes = "application/json", produces = "application/json")
     public ResponseEntity<SortResponse> sort(@RequestBody SortRequest sr) {
         if (sr.getValues().length == 0 || sr.getParameters().isEmpty()) {
