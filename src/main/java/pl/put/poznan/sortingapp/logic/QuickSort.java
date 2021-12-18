@@ -2,13 +2,16 @@ package pl.put.poznan.sortingapp.logic;
 
 import java.util.Arrays;
 
+/**
+ * Klasa bedaca implementacja algorytmu sortujacego QuickSort.
+ */
 public class QuickSort {
 
     /**
-     * Sorts given array of integers with quick sort
-     * @param array Unsorted array of integers
-     * @param low First value
-     * @param high Last value
+     * Sortuje podany ciag obiektow algorytmem QuickSort.
+     * @param array Nieposortowany ciag obiektow.
+     * @param low Pierwszy wartosc.
+     * @param high Druga wartosc.
      */
     public static void sort(int[] array, int low, int high) {
         if (array.length == 0)

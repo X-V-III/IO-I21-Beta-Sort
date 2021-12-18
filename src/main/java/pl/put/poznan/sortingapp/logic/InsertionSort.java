@@ -2,12 +2,15 @@ package pl.put.poznan.sortingapp.logic;
 
 import pl.put.poznan.sortingapp.util.Utils;
 
+/**
+ * Klasa bedaca implementacja algorytmu sortujacego InsertionSort.
+ */
 public class InsertionSort {
 
     /**
-     * Sorts given array of integers with insertion sort
-     * @param arr Unsorted array of integers
-     * @throws IllegalArgumentException When given array is empty, throws IllegalArgumentException
+     * Sortuje podany ciag obiektow algorytmem InsertionSort.
+     * @param arr Nieposortowany ciag obiektow.
+     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
     public static void sort(int[] arr) throws IllegalArgumentException {
 
@@ -26,7 +29,7 @@ public class InsertionSort {
     }
 
     /**
-     * Gives a quick demonstration on a sample array
+     * Metoda sluzaca jako test dzialania klasy InsertionSort.
      */
     public static void quickTest() {
         int[] testArr = {4,3,2,1};

@@ -1,6 +1,8 @@
 package pl.put.poznan.sortingapp.logic;
 
-
+/**
+ * Klasa bedaca implementacja algorytmu sortujacego HeapSort.
+ */
 public class HeapSort
 {
     private static int[] a;
@@ -10,8 +12,8 @@ public class HeapSort
     private static int largest;
 
     /**
-     * Build-Heap Function?
-     * @param a ?
+     * Metoda buildheap sluzaca do budowania sterty z nieposortowanego ciagu obiektow.
+     * @param a Nieposortowany ciag obiektow.
      */
     public static void buildheap(int []a){
         n=a.length-1;
@@ -22,9 +24,9 @@ public class HeapSort
     }
 
     /**
-     * Max-Heap Function?
-     * @param a ?
-     * @param i ?
+     * Metoda maxheap sluzaca dalszemu przetwarzaniu w algorytmie.
+     * @param a Przekazany ciag.
+     * @param i Dodatkowy parametr metody maxheap.
      */
     public static void maxheap(int[] a, int i){
         left=2*i;
@@ -46,7 +48,11 @@ public class HeapSort
         }
     }
 
-    // Exchange Function
+    /**
+     * Metoda exchange sluzaca do zamiany pozycji obiektow.
+     * @param i Pierwszy obiekt okreslonego typu.
+     * @param j Drugi obiekt okreslonego typu.
+     */
     public static void exchange(int i, int j){
         int t=a[i];
         a[i]=a[j];
@@ -54,9 +60,10 @@ public class HeapSort
     }
 
     /**
-     * Sorts given array of integers with heap sort
-     * @param a0 Unsorted array of integers
-     * @throws IllegalArgumentException When given array is empty, throws IllegalArgumentException
+     * Sortuje podany ciag obiektow algorytmem HeapSort.
+     * @param a0 Nieposortowany ciag obiektow.
+     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
+     *
      */
     public static void sort(int []a0) throws IllegalArgumentException {
 

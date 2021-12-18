@@ -1,11 +1,14 @@
 package pl.put.poznan.sortingapp.logic;
 
+/**
+ * Klasa bedaca implementacja algorytmu sortujacego BubbleSort.
+ */
 public class BubbleSort {
 
     /**
-     * Sorts given array of integers with bubble sort
-     * @param arr Unsorted array of integers
-     * @throws IllegalArgumentException When given array is empty, throws IllegalArgumentException
+     * Metoda sortujace podany ciag obiektow algorytmem BubbleSort.
+     * @param arr Nieposortowany ciag obiektow.
+     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
     public static void sort(int[] arr) throws IllegalArgumentException {
 

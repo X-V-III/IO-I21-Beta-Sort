@@ -1,15 +1,17 @@
 package pl.put.poznan.sortingapp.logic;
 
+/**
+ * Klasa bedaca implementacja algorytmu sortujacego MergeSort.
+ */
 public class MergeSort
 {
     /**
-     * Merges two subarrays of arr[]
-     * First subarray is arr[l..m]
-     * Second subarray is arr[m+1..r]
-     * @param arr Initial array
-     * @param l Left index
-     * @param m Middle index
-     * @param r Right index
+     * Metoda Merge dwoch sub-ciagow ciagu arr[].
+     * Pierwszy sub-ciag to arr[l..m], a drugi sub-ciag to arr[m+1..r].
+     * @param arr Pierwotny/domyślny ciag.
+     * @param l Lewy indeks.
+     * @param m Srodkowy indeks.
+     * @param r Prawy indeks.
      */
     public static void merge(int[] arr, int l, int m, int r)
     {
@@ -62,11 +64,12 @@ public class MergeSort
     }
 
     /**
-     * Main function that sorts arr[l..r] using merge()
-     * @param arr Unsorted array of integers
-     * @param l Left index
-     * @param r Right indexx
-     * @throws IllegalArgumentException When given array is empty, throws IllegalArgumentException
+     * Sortuje podany ciag obiektow algorytmem MergeSort.
+     * @param arr Nieposortowany ciag obiektow.
+     * @param l Lewy indeks.
+     * @param r Prawy indeks.
+     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
+     *
      */
     public static void sort(int[] arr, int l, int r) throws IllegalArgumentException {
 

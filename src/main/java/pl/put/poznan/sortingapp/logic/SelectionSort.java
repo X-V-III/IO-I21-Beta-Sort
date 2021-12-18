@@ -1,11 +1,15 @@
 package pl.put.poznan.sortingapp.logic;
 
+/**
+ * Klasa bedaca implementacja algorytmu sortujacego SelectionSort.
+ */
 public class SelectionSort {
 
     /**
-     * Sorts given array of integers with selection sort
-     * @param arr Unsorted array of integers
-     * @throws IllegalArgumentException When given array is empty, throws IllegalArgumentException
+     * Sortuje podany ciag obiektow algorytmem SelectionSort.
+     * @param arr Nieposortowany ciag obiektow.
+     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
+     *
      */
     public static void sort(int[] arr) throws IllegalArgumentException {
 
