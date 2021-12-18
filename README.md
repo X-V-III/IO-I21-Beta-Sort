@@ -10,4 +10,4 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vTn6j3M8pmGEzrsQk8mXse7lVHUdhYWk
 
 
 Od teraz każdy commit powoduje budowanie aplikacji, aby sprawdzić czy nie uszkodził on wcześniejszych funkcjonalności.
-![ci.yml](https://github.com/X-V-III/IO-I21-Beta-Sort/actions/workflows/ci.yml)
+![ci.yml](https://github.com/X-V-III/IO-I21-Beta-Sort/actions/workflows/ci.yml/badge.svg)
