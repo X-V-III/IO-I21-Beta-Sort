@@ -6,9 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.sortingapp.app.SortingApplication;
-import pl.put.poznan.sortingapp.logic.BubbleSort;
-import pl.put.poznan.sortingapp.logic.MergeSort;
-import pl.put.poznan.sortingapp.logic.SelectionSort;
+import pl.put.poznan.sortingapp.logic.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,12 +34,27 @@ public class SortingApplicationController {
             long start = System.nanoTime();
 
             try {
-                if (algName.equals("bubble")) {
-                    BubbleSort.sort(original);
-                } else if (algName.equals("selection")) {
-                    SelectionSort.sort(original);
-                } else {
-                    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                switch (algName) {
+                    case "bubble":
+                        BubbleSort.sort(original);
+                        break;
+                    case "selection":
+                        SelectionSort.sort(original);
+                        break;
+                    case "insertion":
+                        InsertionSort.sort(original);
+                        break;
+                    case "heap":
+                        HeapSort.sort(original);
+                        break;
+                    case "merge":
+                        MergeSort.sort(original, 0, original.length - 1);
+                        break;
+                    case "quick":
+                        QuickSort.sort(original, 0, original.length - 1);
+                        break;
+                    default:
+                        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
                 }
             } catch (IllegalArgumentException e) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
