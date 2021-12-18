@@ -35,11 +35,15 @@ public class SortingApplicationController {
 
             long start = System.nanoTime();
 
-            if (algName.equals("bubble")) {
-                BubbleSort.sortBubble(original);
-            } else if (algName.equals("selection")) {
-                SelectionSort.sortSelection(original);
-            } else {
+            try {
+                if (algName.equals("bubble")) {
+                    BubbleSort.sort(original);
+                } else if (algName.equals("selection")) {
+                    SelectionSort.sort(original);
+                } else {
+                    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                }
+            } catch (IllegalArgumentException e) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
 
