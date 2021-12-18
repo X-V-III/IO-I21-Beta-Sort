@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class SortRequest {
     private int[] values;
     private ArrayList<String> parameters;
+    private boolean reversed;
 
-    public SortRequest(int[] values, ArrayList<String> parameters) {
+    public SortRequest(int[] values, ArrayList<String> parameters, boolean reversed) {
         this.values = values;
         this.parameters = parameters;
+        this.reversed = reversed;
     }
 
     public int[] getValues() {
@@ -25,5 +27,13 @@ public class SortRequest {
 
     public void setParameters(ArrayList<String> parameters) {
         this.parameters = parameters;
+    }
+
+    public boolean isReversed() {
+        return reversed;
+    }
+
+    public void setReversed(boolean reversed) {
+        this.reversed = reversed;
     }
 }
