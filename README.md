@@ -7,3 +7,6 @@ https://docs.google.com/spreadsheets/d/1QCQqoKHluu5V3HyL90Hda2ByDqyxh_Tj/edit?us
 
 Zasady punktowania sprintu:
 https://docs.google.com/spreadsheets/d/e/2PACX-1vTn6j3M8pmGEzrsQk8mXse7lVHUdhYWkfxbkQiYI23rBtwM4N3bWw0qtupW-gesfCkcYasnZ-eEXl-F/pubhtml
+
+
+![example workflow](https://github.com/X-V-III/IO-I21-Beta-Sort/actions/workflows/new/badge.svg)
