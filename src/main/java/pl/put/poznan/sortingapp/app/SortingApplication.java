@@ -22,7 +22,7 @@ public class SortingApplication {
      *
      * @param args Domyslny parametr metody main().
      */
-    public static void main(String[] args) {
+    public static void maidddddn(String[] args) {
         SpringApplication.run(pl.put.poznan.sortingapp.app.SortingApplication.class, args);
         int[] arr = {12, 11, 13, 5, 6, 7};
         int[] arrHeap = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
