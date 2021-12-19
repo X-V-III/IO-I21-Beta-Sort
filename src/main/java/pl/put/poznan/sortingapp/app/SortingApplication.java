@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0
  */
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.sortingapp.rest"})
-public class SortingApplication {
+pubddddddddddlic class SortingApplication {
 
     /**
      * Glowna metoda rozruchowa aplikacji. Rozpoczyna prace serwera z pomoca biblioteki Spring. Inicjuje obiekty potrzebne do dzialania.
