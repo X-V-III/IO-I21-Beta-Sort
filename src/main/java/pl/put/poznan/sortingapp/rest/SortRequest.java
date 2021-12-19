@@ -1,13 +1,15 @@
 package pl.put.poznan.sortingapp.rest;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Klasa odzwierciedlajaca przekazany przez uzytkownika ciag obiektow do posortowania.
  * */
 public class SortRequest {
-    private int[] values;
+    private ArrayList<Object> values;
     private ArrayList<String> parameters;
+    private String key;
     private boolean reversed;
 
     /**
@@ -16,23 +18,50 @@ public class SortRequest {
      * @param parameters Lista algorytmow sortujacych do wykorzystania.
      * @param reversed Czy odwracac wynik.
      * */
-    public SortRequest(int[] values, ArrayList<String> parameters, boolean reversed) {
+    public SortRequest(ArrayList<Object> values, ArrayList<String> parameters, boolean reversed) {
         this.values = values;
         this.parameters = parameters;
         this.reversed = reversed;
     }
 
     /**
+     * Transforms ArrayList to int[]
+     */
+    public int[] getIntArrayByKey(String key) {
+        int[] toSort = new int[values.size()];
+        for (int i = 0; i < values.size(); ++i) {
+            Map<String,String> param = (Map<String,String>) values.get(i);
+            String strValue = (String) param.get(key);
+            toSort[i] = Integer.parseInt(strValue);
+        }
+        return toSort;
+    }
+
+    /**
+     * Getter klucza
+     */
+    public String getKey() {
+        return key;
+    }
+
+    /**
+     * Setter klucza
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    /**
     * Getter wartosci.
     */
-    public int[] getValues() {
+    public ArrayList<Object> getValues() {
         return values;
     }
 
     /**
      * Setter wartosci.
      */
-    public void setValues(int[] values) {
+    public void setValues(ArrayList<Object> values) {
         this.values = values;
     }
 

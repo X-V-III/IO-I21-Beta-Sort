@@ -26,17 +26,18 @@ public class SortingApplicationController {
      * */
     @GetMapping(path = "/sorted", consumes = "application/json", produces = "application/json")
     public ResponseEntity<SortResponse> sort(@RequestBody SortRequest sr) {
-        if (sr.getValues().length == 0 || sr.getParameters().isEmpty()) {
+        if (sr.getValues().size() == 0 || sr.getParameters().isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         Report[] reports = new Report[sr.getParameters().size()];
 
         int[] original = new int[0];
+        String key = sr.getKey();
 
         int i = 0;
         for (String algName : sr.getParameters()) {
-            original = sr.getValues();
+            original = sr.getIntArrayByKey(key);
 
             long start = System.nanoTime();
 
@@ -81,7 +82,6 @@ public class SortingApplicationController {
             }
             original = reversed;
         }
-
         return new ResponseEntity<>(new SortResponse(original, reports), HttpStatus.OK);
     }
 }
