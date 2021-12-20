@@ -57,7 +57,15 @@
     <version>0.1</version>
 
     <packaging>jar</packaging>
-
+        
+        <distributionManagement>
+        <repository>
+            <id>IO-I21-Beta-Sort</id>
+            <name>IO-I21-Beta-Sort</name>
+            <url>https://github.com/X-V-III/IO-I21-Beta-Sort</url>
+        </repository>
+        </distributionManagement>
+        
     <properties>
         <java.version>11</java.version>
     </properties>
