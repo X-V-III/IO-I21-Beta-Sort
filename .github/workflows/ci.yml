@@ -14,7 +14,7 @@ jobs:
           cache: maven
           
       - name: Permission
-        run: chmod 777 https://github.com/X-V-III/IO-I21-Beta-Sort/pl/put/poznan/io-project-architecture/0.1/io-project-architecture-0.1.jar
+        run: chmod 777 /pl/put/poznan/io-project-architecture/0.1/io-project-architecture-0.1.jar
         
       - name: Validate, build and run tests
         run: mvn validate compile test package verify install deploy
