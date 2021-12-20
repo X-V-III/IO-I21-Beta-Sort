@@ -5,17 +5,30 @@ package pl.put.poznan.sortingapp.rest;
  * */
 public class SortResponse {
 
+    private String[] sortedArray;
+    private Report[] reports;
+
+    /**
+     * Konstruktor klasy SortResponse.
+     * @param sortedArray Posortowany ciag obiektow.
+     * @param reports Reporty dzialania algorytmow.
+     * */
+    public SortResponse(String[] sortedArray, Report[] reports) {
+        this.sortedArray = sortedArray;
+        this.reports = reports;
+    }
+
     /**
      * Getter posortowanego ciagu obiektow.
      */
-    public int[] getSortedArray() {
+    public String[] getSortedArray() {
         return sortedArray;
     }
 
     /**
      * Setter posortowanego ciagu obiektow.
      */
-    public void setSortedArray(int[] sortedArray) {
+    public void setSortedArray(String[] sortedArray) {
         this.sortedArray = sortedArray;
     }
 
@@ -32,18 +45,4 @@ public class SortResponse {
     public void setReports(Report[] reports) {
         this.reports = reports;
     }
-
-    /**
-     * Konstruktor klasy SortResponse.
-     * @param sortedArray Posortowany ciag obiektow.
-     * @param reports Reporty dzialania algorytmow.
-     * */
-    public SortResponse(int[] sortedArray, Report[] reports) {
-        this.sortedArray = sortedArray;
-        this.reports = reports;
-    }
-
-    private int[] sortedArray;
-    private Report[] reports;
-
 }

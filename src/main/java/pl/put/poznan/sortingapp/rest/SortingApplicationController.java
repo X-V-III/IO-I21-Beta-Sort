@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.sortingapp.app.SortingApplication;
 import pl.put.poznan.sortingapp.logic.*;
 
+import java.awt.geom.QuadCurve2D;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import static pl.put.poznan.sortingapp.util.Utils.*;
 
 
 /**
@@ -23,7 +25,7 @@ public class SortingApplicationController {
 
     /**
      * Metoda implementujaca reakcje na zadanie GET w protokole HTTP.
-     * */
+     */
     @GetMapping(path = "/sorted", consumes = "application/json", produces = "application/json")
     public ResponseEntity<SortResponse> sort(@RequestBody SortRequest sr) {
         if (sr.getValues().size() == 0 || sr.getParameters().isEmpty()) {
@@ -32,34 +34,47 @@ public class SortingApplicationController {
 
         Report[] reports = new Report[sr.getParameters().size()];
 
-        int[] original = new int[0];
+        String[] original = new String[0];
         String key = sr.getKey();
+        String sortAs = sr.getSortAs();
+
+        // Is needed temporarily for results to show correctly
+        boolean newMethodCalled = false;
+        int[] originalInts = new int[0];
 
         int i = 0;
         for (String algName : sr.getParameters()) {
-            original = sr.getIntArrayByKey(key);
+            original = sr.getStringArrayByKey(key);
+
+            // Is needed for old methods to work temporarily
+            if (sortAs.compareToIgnoreCase("Integer") == 0) {
+                originalInts = stringsToInts(original);
+            }
 
             long start = System.nanoTime();
 
             try {
                 switch (algName) {
                     case "bubble":
-                        BubbleSort.sort(original);
+                        BubbleSort.sort(originalInts);
                         break;
                     case "selection":
-                        SelectionSort.sort(original);
+                        SelectionSort.sort(originalInts);
                         break;
                     case "insertion":
-                        InsertionSort.sort(original);
+                        // The only sorting class with implemented lexicographical sorting
+                        // sortAs is either "String" or "Integer"
+                        InsertionSort.sort(original, sortAs);
+                        newMethodCalled = true;
                         break;
                     case "heap":
-                        HeapSort.sort(original);
+                        HeapSort.sort(originalInts);
                         break;
                     case "merge":
-                        MergeSort.sort(original, 0, original.length - 1);
+                        MergeSort.sort(originalInts, 0, originalInts.length - 1);
                         break;
                     case "quick":
-                        QuickSort.sort(original, 0, original.length - 1);
+                        QuickSort.sort(originalInts, 0, originalInts.length - 1);
                         break;
                     default:
                         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -75,13 +90,18 @@ public class SortingApplicationController {
             i++;
         }
 
-        if(sr.isReversed()) {
-            int[] reversed = new int[original.length];
-            for(int j = 0; j < original.length; j++) {
+        // isReversed is broken for old sorting algorithms. Will fix when all algorithms are updated.
+        if (sr.isReversed()) {
+            String[] reversed = new String[original.length];
+            for (int j = 0; j < original.length; j++) {
                 reversed[j] = original[original.length - j - 1];
             }
             original = reversed;
         }
-        return new ResponseEntity<>(new SortResponse(original, reports), HttpStatus.OK);
+        if (newMethodCalled) {
+            return new ResponseEntity<>(new SortResponse(original, reports), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(new SortResponse(intsToStrings(originalInts), reports), HttpStatus.OK);
     }
+
 }
