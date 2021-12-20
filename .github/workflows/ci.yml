@@ -15,11 +15,3 @@ jobs:
         
       - name: Validate, build and run tests
         run: mvn validate compile test package verify install 
-
-#       - name: Deploy
-#         run: mvn deploy
-
-      - name: Publish package
-        run: mvn --batch-mode deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
