@@ -95,7 +95,7 @@ public class SortingApplication {
 
             //Empty list exception
             //InsertionSort.sort(new int[]{});
-
+            //
         } catch (IllegalArgumentException e) {
             System.out.println("\nGiven array is empty");
             e.printStackTrace();
