@@ -1,12 +1,14 @@
 package pl.put.poznan.sortingapp.logic;
 
+import pl.put.poznan.sortingapp.util.Utils;
+
 /**
  * Klasa bedaca implementacja algorytmu sortujacego BubbleSort.
  */
 public class BubbleSort {
 
     /**
-     * Metoda sortujace podany ciag obiektow algorytmem BubbleSort.
+     * Metoda sortujace podany ciag obiektow typu int algorytmem BubbleSort.
      * @param arr Nieposortowany ciag obiektow.
      * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
@@ -25,5 +27,31 @@ public class BubbleSort {
                 }
             }
         }
+    }
+
+
+
+    /**
+     * Metoda sortujace podany ciag obiektow typu String algorytmem BubbleSort.
+     * @param stringArr Nieposortowany ciag obiektow.
+     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
+     */
+    public static String[] sortString(String[] stringArr) throws IllegalArgumentException {
+
+        // Throws an exception when arr is empty
+        if (stringArr.length == 0) throw new IllegalArgumentException();
+
+        String tempString;
+
+        for (int i = 0; i < stringArr.length - 1; i++) {
+            for (int j = 0; j < stringArr.length - 1; j++) {
+                if (stringArr[j].compareTo(stringArr[j + 1]) > 0) {
+                    tempString = stringArr[j];
+                    stringArr[j] = stringArr[j + 1];
+                    stringArr[j + 1] = tempString;
+                }
+            }
+        }
+        return stringArr;
     }
 }

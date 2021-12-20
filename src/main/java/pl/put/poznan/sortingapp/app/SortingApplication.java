@@ -24,10 +24,15 @@ public class SortingApplication {
      */
     public static void main(String[] args) {
         SpringApplication.run(pl.put.poznan.sortingapp.app.SortingApplication.class, args);
+        //Sortowanie liczb
         int[] arr = {12, 11, 13, 5, 6, 7};
         int[] arrHeap = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
         int[] arrBubble = {5, 6, 2, 1, 4};
         int[] arrQuick = {24, 5, 3, 35, 14, 23, 19, 43, 2};
+
+        //Sortowanie leksykalne
+        String stringArrBubble[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
+
 
         int lowQuick = 0;
         int highQuick = arrQuick.length - 1;
@@ -51,17 +56,22 @@ public class SortingApplication {
             HeapSort.sort(arrHeap);
 
             System.out.println("\nHeap Sort Sorted Array");
-            printArray(arrHeap);
+            printArray(arrHeap);*/
 
             //BubbleSort
             System.out.println("\nBubble Sort Given Array");
             printArray(arrBubble);
+            System.out.println("\nBubble Sort Given String Array");
+            printArray(stringArrBubble);
 
             BubbleSort.sort(arrBubble);
+            BubbleSort.sortString(stringArrBubble);
 
             System.out.println("\nBubble Sort Sorted Array");
             printArray(arrBubble);
-
+            System.out.println("\nBubble Sort Sorted String Array");
+            printArray(stringArrBubble);
+            /*
             //QuickSort
             System.out.println("\nQuick Sort Given Array");
             printArray(arrQuick);
@@ -72,8 +82,8 @@ public class SortingApplication {
             printArray(arrQuick);
 
             //Empty list exception
-            InsertionSort.sort(new int[]{});
-            */
+            InsertionSort.sort(new int[]{});*/
+
         } catch (IllegalArgumentException e) {
             System.out.println("\nGiven array is empty");
             e.printStackTrace();

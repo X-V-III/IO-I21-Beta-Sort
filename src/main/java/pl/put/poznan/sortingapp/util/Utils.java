@@ -12,4 +12,9 @@ public class Utils {
         for (int j : arr) System.out.print(j + " ");
         System.out.println();
     }
+
+    public static void printArray(String[] arr) {
+        for (String j : arr) System.out.print(j + " ");
+        System.out.println();
+    }
 }
