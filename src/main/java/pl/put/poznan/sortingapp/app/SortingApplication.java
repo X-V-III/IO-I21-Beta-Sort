@@ -31,6 +31,7 @@ public class SortingApplication {
         int[] arrQuick = {24, 5, 3, 35, 14, 23, 19, 43, 2};
 
         //Sortowanie leksykalne
+        String stringArrQuick[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
         String stringArrBubble[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
 
 
@@ -50,39 +51,50 @@ public class SortingApplication {
             printArray(arr);
 
             //HeapSort
-            System.out.println("\nHeap Sort Given Array");
-            printArray(arrHeap);
+            //System.out.println("\nHeap Sort Given Array");
+            //printArray(arrHeap);
+            System.out.println("\nHeap Sort Given StringArray");
+            printArray(stringArrHeap);
 
             HeapSort.sort(arrHeap);
+            HeapSort.sortString(stringArrHeap);
 
-            System.out.println("\nHeap Sort Sorted Array");
-            printArray(arrHeap);*/
+            //System.out.println("\nHeap Sort Sorted Array");
+            //printArray(arrHeap);
+            System.out.println("\nHeap Sort Sorted String Array");
+            printArray(stringArrHeap);*/
+
 
             //BubbleSort
-            System.out.println("\nBubble Sort Given Array");
-            printArray(arrBubble);
-            System.out.println("\nBubble Sort Given String Array");
-            printArray(stringArrBubble);
+            //System.out.println("\nBubble Sort Given Array");
+            //printArray(arrBubble);
+            //System.out.println("\nBubble Sort Given String Array");
+            //printArray(stringArrBubble);
 
             BubbleSort.sort(arrBubble);
             BubbleSort.sortString(stringArrBubble);
 
-            System.out.println("\nBubble Sort Sorted Array");
-            printArray(arrBubble);
+            //System.out.println("\nBubble Sort Sorted Array");
+            //printArray(arrBubble);
             System.out.println("\nBubble Sort Sorted String Array");
             printArray(stringArrBubble);
-            /*
+
             //QuickSort
-            System.out.println("\nQuick Sort Given Array");
-            printArray(arrQuick);
+            //System.out.println("\nQuick Sort Given Array");
+            //printArray(arrQuick);
+            System.out.println("\nQuick Sort Given String Array");
+            printArray(stringArrQuick);
 
             QuickSort.sort(arrQuick, lowQuick, highQuick);
+            QuickSort.sortString(stringArrQuick);
 
+            //System.out.println("\nQuick Sort Sorted Array");
+            //printArray(arrQuick);
             System.out.println("\nQuick Sort Sorted Array");
-            printArray(arrQuick);
+            printArray(stringArrQuick);
 
             //Empty list exception
-            InsertionSort.sort(new int[]{});*/
+            //InsertionSort.sort(new int[]{});
 
         } catch (IllegalArgumentException e) {
             System.out.println("\nGiven array is empty");
