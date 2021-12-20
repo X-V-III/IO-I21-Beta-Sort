@@ -31,7 +31,7 @@ public class SortingApplication {
         int[] arrQuick = {24, 5, 3, 35, 14, 23, 19, 43, 2};
 
         //Sortowanie leksykalne
-        String stringArrQuick[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
+        String stringArrSelection[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
         String stringArrBubble[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
 
 
@@ -39,6 +39,14 @@ public class SortingApplication {
         int highQuick = arrQuick.length - 1;
 
         try {
+            System.out.println("Selection Sort Given String Array");
+            printArray(stringArrSelection);
+
+            SelectionSort.sortString(stringArrSelection);
+
+            System.out.println("\nSelection Sort Sorted String Array");
+            printArray(stringArrSelection);
+
             /*
             //Merge Sort
             System.out.println("Merge Sort Given Array");
@@ -62,7 +70,7 @@ public class SortingApplication {
             //System.out.println("\nHeap Sort Sorted Array");
             //printArray(arrHeap);
             System.out.println("\nHeap Sort Sorted String Array");
-            printArray(stringArrHeap);*/
+            printArray(stringArrHeap);
 
 
             //BubbleSort
@@ -95,7 +103,7 @@ public class SortingApplication {
 
             //Empty list exception
             //InsertionSort.sort(new int[]{});
-            //
+            //*/
         } catch (IllegalArgumentException e) {
             System.out.println("\nGiven array is empty");
             e.printStackTrace();
