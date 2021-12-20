@@ -13,5 +13,5 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Validate, build and run tests
-      - run: mvn clean compile assembly:single && mvn install && mvn mvn --batch-mode --update-snapshots verify
+        run: mvn clean compile assembly:single && mvn install && mvn mvn --batch-mode --update-snapshots verify
 
