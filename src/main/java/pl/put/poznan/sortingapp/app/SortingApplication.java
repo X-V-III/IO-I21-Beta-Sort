@@ -31,14 +31,23 @@ public class SortingApplication {
         int[] arrQuick = {24, 5, 3, 35, 14, 23, 19, 43, 2};
 
         //Sortowanie leksykalne
-        String stringArrSelection[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
+        String stringArrInsertion[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
         String stringArrBubble[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
+        String stringArrSelection[] = {"Pata", "Peter", "Andi", "Franki", "Olaf", "Asterix", "Laura", "Christoph", "Bernd", "Xena", "s", "k", "c", "r", "v", "n", "b", "f", "a", "d"};
 
 
         int lowQuick = 0;
         int highQuick = arrQuick.length - 1;
 
         try {
+            System.out.println("Insertion Sort Given String Array");
+            printArray(stringArrInsertion);
+
+            InsertionSort.sortString(stringArrInsertion);
+
+            System.out.println("\nInsertion Sort Sorted String Array");
+            printArray(stringArrInsertion);
+
             System.out.println("Selection Sort Given String Array");
             printArray(stringArrSelection);
 
