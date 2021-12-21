@@ -38,46 +38,31 @@ public class SortingApplicationController {
         String key = sr.getKey();
         String sortAs = sr.getSortAs();
 
-        // Is needed temporarily for results to show correctly
-        boolean newMethodCalled = false;
-        int[] originalInts = new int[0];
-
         int i = 0;
         for (String algName : sr.getParameters()) {
             original = sr.getStringArrayByKey(key);
-
-            // Is needed for old methods to work temporarily
-            if (sortAs.compareToIgnoreCase("Integer") == 0) {
-                originalInts = stringsToInts(original);
-            }
 
             long start = System.nanoTime();
 
             try {
                 switch (algName) {
-                    case "bubble"://
+                    case "bubble":
                         BubbleSort.sort(original, sortAs);
-                        newMethodCalled = true;
                         break;
-                    case "selection"://in progress
+                    case "selection":
                         SelectionSort.sort(original, sortAs);
-                        newMethodCalled = true;
                         break;
-                    case "insertion"://done
+                    case "insertion":
                         InsertionSort.sort(original, sortAs);
-                        newMethodCalled = true;
                         break;
-                    case "heap"://
+                    case "heap":
                         HeapSort.sort(original, sortAs);
-                        newMethodCalled = true;
                         break;
-                    case "merge"://
+                    case "merge":
                         MergeSort.sort(original, 0, original.length - 1, sortAs);
-                        newMethodCalled = true;
                         break;
-                    case "quick"://in progress
+                    case "quick":
                         QuickSort.sort(original, 0, original.length - 1, sortAs);
-                        newMethodCalled = true;
                         break;
                     default:
                         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -93,7 +78,6 @@ public class SortingApplicationController {
             i++;
         }
 
-        // isReversed is broken for old sorting algorithms. Will fix when all algorithms are updated.
         if (sr.isReversed()) {
             String[] reversed = new String[original.length];
             for (int j = 0; j < original.length; j++) {
@@ -101,10 +85,7 @@ public class SortingApplicationController {
             }
             original = reversed;
         }
-        if (newMethodCalled) {
-            return new ResponseEntity<>(new SortResponse(original, reports), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(new SortResponse(intsToStrings(originalInts), reports), HttpStatus.OK);
-    }
 
+        return new ResponseEntity<>(new SortResponse(original, reports), HttpStatus.OK);
+    }
 }
