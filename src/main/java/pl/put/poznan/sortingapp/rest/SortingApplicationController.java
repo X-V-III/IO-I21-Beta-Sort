@@ -56,7 +56,7 @@ public class SortingApplicationController {
             try {
                 switch (algName) {
                     case "bubble"://
-                        BubbleSort.sort(originalInts);
+                        BubbleSort.sort(original, sortAs);
                         break;
                     case "selection"://in progress
                         SelectionSort.sort(original, sortAs);
