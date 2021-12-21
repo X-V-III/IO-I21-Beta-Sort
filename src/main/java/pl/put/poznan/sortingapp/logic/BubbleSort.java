@@ -10,20 +10,36 @@ public class BubbleSort {
     /**
      * Metoda sortujace podany ciag obiektow typu int algorytmem BubbleSort.
      * @param arr Nieposortowany ciag obiektow.
+     * @param sortAs Sortować elementy jako obiekty jakiej klasy.
      * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
-    public static void sort(int[] arr) throws IllegalArgumentException {
+    public static void sort(String[] arr, String sortAs) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
         if (arr.length == 0) throw new IllegalArgumentException();
 
-        int i, j , swap;
-        for(i = 0; i < arr.length; i ++){
-            for(j = 0; j < arr.length - 1  ;j++){
-                if(arr[j] > arr[j+1]){
+        if (sortAs.compareToIgnoreCase("String") == 0) {
+            sortAsStrings(arr);
+        } else if (sortAs.compareToIgnoreCase("Integer") == 0) {
+            sortAsIntegers(arr);
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * Metoda sortujace podany ciag obiektow jako Integer.
+     * @param arr Nieposortowany ciag obiektow.
+     */
+    private static void sortAsIntegers(String[] arr) {
+        int i, j;
+        String swap;
+        for (i = 0; i < arr.length; i++) {
+            for (j = 0; j < arr.length - 1; j++) {
+                if (Integer.parseInt(arr[j]) > Integer.parseInt(arr[j + 1])) {
                     swap = arr[j];        // Umieść większy numer w swap
-                    arr[j] = arr[j+1];    // place the smaller number
-                    arr[j+1] = swap;
+                    arr[j] = arr[j + 1];    // place the smaller number
+                    arr[j + 1] = swap;
                 }
             }
         }
@@ -32,11 +48,11 @@ public class BubbleSort {
 
 
     /**
-     * Metoda sortujace podany ciag obiektow typu String algorytmem BubbleSort.
+     * Metoda sortujaca podany ciag obiektow typu String algorytmem BubbleSort.
      * @param stringArr Nieposortowany ciag obiektow.
      * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
-    public static String[] sortString(String[] stringArr) throws IllegalArgumentException {
+    public static String[] sortAsStrings(String[] stringArr) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
         if (stringArr.length == 0) throw new IllegalArgumentException();
