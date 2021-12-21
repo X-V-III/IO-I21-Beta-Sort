@@ -57,22 +57,26 @@ public class SortingApplicationController {
                 switch (algName) {
                     case "bubble"://
                         BubbleSort.sort(original, sortAs);
+                        newMethodCalled = true;
                         break;
                     case "selection"://in progress
                         SelectionSort.sort(original, sortAs);
+                        newMethodCalled = true;
                         break;
                     case "insertion"://done
                         InsertionSort.sort(original, sortAs);
                         newMethodCalled = true;
                         break;
                     case "heap"://
-                        HeapSort.sort(originalInts);
+                        HeapSort.sort(original, sortAs);
+                        newMethodCalled = true;
                         break;
                     case "merge"://
                         MergeSort.sort(originalInts, 0, originalInts.length - 1);
                         break;
                     case "quick"://in progress
                         QuickSort.sort(original, 0, original.length - 1, sortAs);
+                        newMethodCalled = true;
                         break;
                     default:
                         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
