@@ -55,26 +55,24 @@ public class SortingApplicationController {
 
             try {
                 switch (algName) {
-                    case "bubble":
+                    case "bubble"://
                         BubbleSort.sort(originalInts);
                         break;
-                    case "selection":
-                        SelectionSort.sort(originalInts);
+                    case "selection"://in progress
+                        SelectionSort.sort(original, sortAs);
                         break;
-                    case "insertion":
-                        // The only sorting class with implemented lexicographical sorting
-                        // sortAs is either "String" or "Integer"
+                    case "insertion"://done
                         InsertionSort.sort(original, sortAs);
                         newMethodCalled = true;
                         break;
-                    case "heap":
+                    case "heap"://
                         HeapSort.sort(originalInts);
                         break;
-                    case "merge":
+                    case "merge"://
                         MergeSort.sort(originalInts, 0, originalInts.length - 1);
                         break;
-                    case "quick":
-                        QuickSort.sort(originalInts, 0, originalInts.length - 1);
+                    case "quick"://in progress
+                        QuickSort.sort(original, 0, original.length - 1, sortAs);
                         break;
                     default:
                         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
