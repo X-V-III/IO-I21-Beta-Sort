@@ -14,3 +14,5 @@ jobs:
 
       - name: Validate, build and run tests
         run: mvn validate compile test package verify install 
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml | mvn javadoc:javadoc | ls
