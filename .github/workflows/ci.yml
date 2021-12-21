@@ -13,4 +13,4 @@ jobs:
           cache: maven
 
       - name: Validate, build and run tests
-        run: mvn validate compile test package verify install 
+        run: mvn validate compile test package verify install
