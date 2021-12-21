@@ -34,6 +34,9 @@ public class SortingApplicationController {
 
         Report[] reports = new Report[sr.getParameters().size()];
 
+        long bestTimeElapsed = 0;
+        String bestAlgorithm = null;
+
         String[] original = new String[0];
         String key = sr.getKey();
         String sortAs = sr.getSortAs();
@@ -75,6 +78,11 @@ public class SortingApplicationController {
             long timeElapsed = finish - start;
 
             reports[i] = new Report(algName, timeElapsed);
+            if (bestTimeElapsed == 0 || timeElapsed < bestTimeElapsed) {
+                bestTimeElapsed = timeElapsed;
+                bestAlgorithm = algName;
+            }
+
             i++;
         }
 
@@ -85,7 +93,6 @@ public class SortingApplicationController {
             }
             original = reversed;
         }
-
-        return new ResponseEntity<>(new SortResponse(original, reports), HttpStatus.OK);
+        return new ResponseEntity<>(new SortResponse(original, reports, bestAlgorithm ,bestTimeElapsed), HttpStatus.OK);
     }
 }
