@@ -1,7 +1,7 @@
 package pl.put.poznan.sortingapp.logic;
 
 /**
- * Klasa bedaca implementacja algorytmu sortujacego HeapSort.
+ * Klasa bedąca implementacją algorytmu sortującego HeapSort.
  */
 public class HeapSort {
     private static String[] a;
