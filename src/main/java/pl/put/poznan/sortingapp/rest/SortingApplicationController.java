@@ -72,7 +72,8 @@ public class SortingApplicationController {
                         newMethodCalled = true;
                         break;
                     case "merge"://
-                        MergeSort.sort(originalInts, 0, originalInts.length - 1);
+                        MergeSort.sort(original, 0, original.length - 1, sortAs);
+                        newMethodCalled = true;
                         break;
                     case "quick"://in progress
                         QuickSort.sort(original, 0, original.length - 1, sortAs);
