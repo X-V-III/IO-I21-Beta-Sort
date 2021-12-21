@@ -16,4 +16,4 @@ jobs:
       - name: Generate javadoc
         run: mvn javadoc:javadoc
       - name: Show files after
-        run: ls -R
+        run: ls target -R
