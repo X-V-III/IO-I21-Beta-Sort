@@ -1,7 +1,5 @@
 package pl.put.poznan.sortingapp.logic;
 
-import pl.put.poznan.sortingapp.util.Utils;
-
 /**
  * Klasa bedaca implementacja algorytmu sortujacego BubbleSort.
  */
@@ -28,7 +26,7 @@ public class BubbleSort {
     }
 
     /**
-     * Metoda sortujace podany ciag obiektow jako Integer.
+     * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @param arr Nieposortowany ciag obiektow.
      */
     private static void sortAsIntegers(String[] arr) {
@@ -37,28 +35,20 @@ public class BubbleSort {
         for (i = 0; i < arr.length; i++) {
             for (j = 0; j < arr.length - 1; j++) {
                 if (Integer.parseInt(arr[j]) > Integer.parseInt(arr[j + 1])) {
-                    swap = arr[j];        // Umieść większy numer w swap
-                    arr[j] = arr[j + 1];    // place the smaller number
+                    swap = arr[j];
+                    arr[j] = arr[j + 1];
                     arr[j + 1] = swap;
                 }
             }
         }
     }
 
-
-
     /**
-     * Metoda sortujaca podany ciag obiektow typu String algorytmem BubbleSort.
+     * Metoda sortujaca podany ciag obiektow typu String jako String.
      * @param stringArr Nieposortowany ciag obiektow.
-     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
-    public static String[] sortAsStrings(String[] stringArr) throws IllegalArgumentException {
-
-        // Throws an exception when arr is empty
-        if (stringArr.length == 0) throw new IllegalArgumentException();
-
+    public static String[] sortAsStrings(String[] stringArr) {
         String tempString;
-
         for (int i = 0; i < stringArr.length - 1; i++) {
             for (int j = 0; j < stringArr.length - 1; j++) {
                 if (stringArr[j].compareTo(stringArr[j + 1]) > 0) {

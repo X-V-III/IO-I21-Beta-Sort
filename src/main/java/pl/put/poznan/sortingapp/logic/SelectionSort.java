@@ -26,42 +26,27 @@ public class SelectionSort {
     }
 
     /**
-     * Sorts arrray of Strings as Strings
+     * Metoda sortujace podany ciag obiektow typu String jako String.
+     * @param arr Nieposortowany ciag obiektow.
      */
+    private static void sortAsStrings(String[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int min_index = i;
 
+            for (int j = i + 1; j < arr.length; j++)
+                if (arr[j].compareTo(arr[min_index]) < 0)
+                    min_index = j;
 
-    /**
-     * Sortuje podany ciag obiektow algorytmem SelectionSort typu String.
-     * @param elements Nieposortowany ciag obiektow.
-     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
-     *
-     */
-    public static void sortAsStrings(String[] elements) throws IllegalArgumentException {
-        selectionSort(elements,0);
-    }
-
-    private static void selectionSort(String[] elements,int start){
-        if (start <= elements.length-1){
-            String tmp = elements[start];
-            int index = -1;
-            for (int i = start + 1; i < elements.length; i++){
-                if (elements[i].compareTo(tmp) < 0){
-                    tmp = elements[i];
-                    index = i;
-                }
-            }
-            if (index != -1){
-                swap(elements, start, index);
-            }
-            selectionSort(elements, start + 1);
+            String temp = arr[min_index];
+            arr[min_index] = arr[i];
+            arr[i] = temp;
         }
     }
 
-    private static void swap(String[] ele, int i, int j){
-        String tmp = ele[i];
-        ele[i] = ele[j];
-        ele[j] = tmp;
-    }
+    /**
+     * Metoda sortujace podany ciag obiektow typu String jako Integer.
+     * @param arr Nieposortowany ciag obiektow.
+     */
     private static void sortAsIntegers(String[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int min_index = i;

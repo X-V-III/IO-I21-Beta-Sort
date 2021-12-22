@@ -5,11 +5,19 @@ package pl.put.poznan.sortingapp.logic;
  */
 public class MergeSort
 {
-    public static void sort(String[] arr, int l, int r, String sortAs) throws IllegalArgumentException {
+    /**
+     * Metoda sortujace podany ciag obiektow typu int algorytmem BubbleSort.
+     * @param arr Nieposortowany ciag obiektow.
+     * @param sortAs Sortować elementy jako obiekty jakiej klasy.
+     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
+     */
+    public static void sort(String[] arr, String sortAs) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
         if (arr.length == 0) throw new IllegalArgumentException();
 
+        int l = 0;
+        int r = arr.length - 1;
         if (sortAs.compareToIgnoreCase("String") == 0) {
             sortAsStrings(arr, l, r);
         } else if (sortAs.compareToIgnoreCase("Integer") == 0) {
@@ -19,6 +27,10 @@ public class MergeSort
         }
     }
 
+    /**
+     * Metoda, sluzaca dla przeprowadzenia iteracji algorytmu Merge Sort dla Integer
+     * @param arr Nieposortowany ciag obiektow.
+     */
     private static void mergeInteger(String[] arr, int l, int m, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
@@ -58,6 +70,10 @@ public class MergeSort
         }
     }
 
+    /**
+     * Metoda, sluzaca dla przeprowadzenia iteracji algorytmu Merge Sort dla String
+     * @param arr Nieposortowany ciag obiektow.
+     */
     private static void mergeString(String[] arr, int l, int m, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
@@ -97,6 +113,10 @@ public class MergeSort
         }
     }
 
+    /**
+     * Metoda sortujace podany ciag obiektow typu String jako Integer.
+     * @param arr Nieposortowany ciag obiektow.
+     */
     private static void sortAsIntegers(String[] arr, int l, int r) {
         if (l < r) {
             int m = l + (r-l)/2;
@@ -108,6 +128,10 @@ public class MergeSort
         }
     }
 
+    /**
+     * Metoda sortujace podany ciag obiektow typu String jako String.
+     * @param arr Nieposortowany ciag obiektow.
+     */
     private static void sortAsStrings(String[] arr, int l, int r) {
         if (l < r) {
             int m = l + (r-l)/2;

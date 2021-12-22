@@ -1,9 +1,5 @@
 package pl.put.poznan.sortingapp.logic;
 
-import pl.put.poznan.sortingapp.util.Utils;
-
-import java.util.ArrayList;
-
 /**
  * Klasa bedaca implementacja algorytmu sortujacego InsertionSort.
  */
@@ -29,7 +25,8 @@ public class InsertionSort {
     }
 
     /**
-     * Sorts arrray of Strings as Strings
+     * Metoda sortujace podany ciag obiektow typu String jako String.
+     * @param arr Nieposortowany ciag obiektow.
      */
     private static void sortAsStrings(String[] arr) {
         for (int i = 1; i < arr.length; ++i) {
@@ -44,7 +41,8 @@ public class InsertionSort {
     }
 
     /**
-     * Sorts arrray of Strings as Integers
+     * Metoda sortujace podany ciag obiektow typu String jako Integer.
+     * @param arr Nieposortowany ciag obiektow.
      */
     private static void sortAsIntegers(String[] arr) {
         for (int i = 1; i < arr.length; ++i) {

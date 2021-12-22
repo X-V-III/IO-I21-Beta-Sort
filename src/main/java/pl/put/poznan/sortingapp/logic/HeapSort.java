@@ -4,6 +4,13 @@ package pl.put.poznan.sortingapp.logic;
  * Klasa bedąca implementacją algorytmu sortującego HeapSort.
  */
 public class HeapSort {
+
+    /**
+     * Metoda sortujace podany ciag obiektow typu int algorytmem Insertion Sort.
+     * @param arr Nieposortowany ciag obiektow.
+     * @param sortAs Sortować elementy jako obiekty jakiej klasy.
+     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
+     */
     public static void sort(String[] arr, String sortAs) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
@@ -18,6 +25,10 @@ public class HeapSort {
         }
     }
 
+    /**
+     * Metoda sortujace podany ciag obiektow typu String jako Integer.
+     * @param arr Nieposortowany ciag obiektow.
+     */
     private static void sortAsIntegers(String[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
@@ -30,6 +41,10 @@ public class HeapSort {
         }
     }
 
+    /**
+     * Metoda, sluzaca dla przeprowadzenia iteracji algorytmu Heap Sort dla Integer
+     * @param arr Nieposortowany ciag obiektow.
+     */
     private static void heapifyInteger(String[] arr, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
@@ -50,6 +65,10 @@ public class HeapSort {
         }
     }
 
+    /**
+     * Metoda sortujace podany ciag obiektow typu String jako String.
+     * @param arr Nieposortowany ciag obiektow.
+     */
     private static void sortAsStrings(String[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
@@ -62,6 +81,10 @@ public class HeapSort {
         }
     }
 
+    /**
+     * Metoda, sluzaca dla przeprowadzenia iteracji algorytmu Heap Sort dla String
+     * @param arr Nieposortowany ciag obiektow.
+     */
     private static void heapifyString(String[] arr, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;

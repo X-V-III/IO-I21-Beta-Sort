@@ -62,10 +62,10 @@ public class SortingApplicationController {
                         HeapSort.sort(original, sortAs);
                         break;
                     case "merge":
-                        MergeSort.sort(original, 0, original.length - 1, sortAs);
+                        MergeSort.sort(original, sortAs);
                         break;
                     case "quick":
-                        QuickSort.sort(original, 0, original.length - 1, sortAs);
+                        QuickSort.sort(original, sortAs);
                         break;
                     default:
                         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

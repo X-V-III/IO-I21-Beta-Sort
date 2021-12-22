@@ -7,45 +7,73 @@ public class QuickSort {
 
     /**
      * Sortuje podany ciag obiektow typu String algorytmem QuickSort.
-     *
-     * @param array Nieposortowany ciag obiektow.
-     * @param low   Pierwsza wartosc.
-     * @param high  Ostatnia wartosc.
+     * @param arr Nieposortowany ciag obiektow.
      * @param sortAs Sortować elementy jako obiekty jakiej klasy.
      */
-    public static void sort(String[] array, int low, int high, String sortAs) {
-        if (array.length == 0)
-            return;
+    public static void sort(String[] arr, String sortAs) throws IllegalArgumentException {
+
+        // Throws an exception when arr is empty
+        if (arr.length == 0) throw new IllegalArgumentException();
+
+        int low = 0;
+        int high = arr.length - 1;
 
         if (low >= high)
-            return;
+            throw new IllegalArgumentException();
         if (sortAs.compareToIgnoreCase("String") == 0) {
-            sortAsStrings(array);
+            sortAsStrings(arr, low, high);
         } else if (sortAs.compareToIgnoreCase("Integer") == 0) {
-            sortAsIntegers(array, 0, array.length - 1);
+            sortAsIntegers(arr, low, high);
         } else {
             throw new IllegalArgumentException();
         }
-
-
     }
 
     /**
-     * Sorts arrray of Strings as Strings
-     *  @param array Nieposortowany ciąg obiektow.
+     * Metoda sortujace podany ciag obiektow typu String jako String.
+     * @param arr Nieposortowany ciag obiektow.
      */
-    public static String[] sortAsStrings(String[] array) {
-        sortStrings(array, 0, array.length - 1);
-        return array;
-    }
-
-    private static void sortStrings(String[] arr, int begin, int end) {
+    private static void sortAsStrings(String[] arr, int begin, int end) {
         if (begin < end) {
             int partitionIndex = partition(arr, begin, end);
 
-            sortStrings(arr, begin, partitionIndex - 1);
-            sortStrings(arr, partitionIndex + 1, end);
+            sortAsStrings(arr, begin, partitionIndex - 1);
+            sortAsStrings(arr, partitionIndex + 1, end);
         }
+    }
+
+    /**
+     * Metoda sortujace podany ciag obiektow typu String jako Integer.
+     * @param arr Nieposortowany ciag obiektow.
+     */
+    private static void sortAsIntegers(String[] arr,int low, int high) {
+        int middle = low + (high - low) / 2;
+        int opora = Integer.parseInt(arr[middle]);
+
+        int i = low, j = high;
+        while (i <= j) {
+            while (Integer.parseInt(arr[i]) < opora) {
+                i++;
+            }
+
+            while (Integer.parseInt(arr[i]) > opora) {
+                j--;
+            }
+
+            if (i <= j) {
+                String temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
+            }
+        }
+
+        if (low < j)
+            sortAsIntegers(arr, low, j);
+
+        if (high > i)
+            sortAsIntegers(arr, i, high);
     }
 
     private static int partition(String[] arr, int begin, int end) {
@@ -67,39 +95,5 @@ public class QuickSort {
         arr[end] = swapTemp;
 
         return i + 1;
-    }
-
-    /**
-     * Sorts arrray of Strings as Integers
-     */
-    private static void sortAsIntegers(String[] array,int low, int high) {
-        int middle = low + (high - low) / 2;
-        int opora = Integer.parseInt(array[middle]);
-
-        int i = low, j = high;
-        while (i <= j) {
-            while (Integer.parseInt(array[i]) < opora) {
-                i++;
-            }
-
-            while (Integer.parseInt(array[i]) > opora) {
-                j--;
-            }
-
-            if (i <= j) {
-                String temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-                i++;
-                j--;
-            }
-
-        }
-
-        if (low < j)
-            sortAsIntegers(array, low, j);
-
-        if (high > i)
-            sortAsIntegers(array, i, high);
     }
 }
