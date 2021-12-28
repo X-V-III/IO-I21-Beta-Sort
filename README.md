@@ -16,4 +16,4 @@ Od teraz każdy commit powoduje budowanie aplikacji, aby sprawdzić czy nie uszk
 
 
 
-![](Retrospektywa_sprintu.png)
+![](Retrospektywa_sprintu.jpg)
