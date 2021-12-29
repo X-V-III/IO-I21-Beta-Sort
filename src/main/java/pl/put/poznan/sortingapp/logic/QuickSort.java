@@ -3,7 +3,7 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego QuickSort.
  */
-public class QuickSort {
+public class QuickSort implements SortingAlgorithm {
 
     /**
      * Sortuje podany ciag obiektow typu String algorytmem QuickSort.

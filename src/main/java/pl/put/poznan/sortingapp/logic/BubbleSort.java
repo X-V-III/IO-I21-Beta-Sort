@@ -3,7 +3,7 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego BubbleSort.
  */
-public class BubbleSort {
+public class BubbleSort implements SortingAlgorithm {
 
     /**
      * Metoda sortujace podany ciag obiektow typu int algorytmem BubbleSort.

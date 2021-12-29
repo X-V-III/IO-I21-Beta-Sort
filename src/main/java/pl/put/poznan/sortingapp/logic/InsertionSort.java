@@ -3,7 +3,7 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego InsertionSort.
  */
-public class InsertionSort {
+public class InsertionSort implements SortingAlgorithm {
 
     /**
      * Sortuje podany ciag obiektow typu String algorytmem InsertionSort.

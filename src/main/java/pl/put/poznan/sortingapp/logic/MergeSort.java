@@ -3,8 +3,8 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego MergeSort.
  */
-public class MergeSort
-{
+public class MergeSort implements SortingAlgorithm {
+
     /**
      * Metoda sortujace podany ciag obiektow typu int algorytmem BubbleSort.
      * @param arr Nieposortowany ciag obiektow.
