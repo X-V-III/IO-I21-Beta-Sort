@@ -28,8 +28,9 @@ public class HeapSort implements SortingAlgorithm {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @param arr Nieposortowany ciag obiektow.
+     * @return Posortowany ciag obiektow.
      */
-    private static void sortAsIntegers(String[] arr) {
+    public static Object[] sortAsIntegers(String[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
             heapifyInteger(arr, n, i);
@@ -39,6 +40,7 @@ public class HeapSort implements SortingAlgorithm {
             arr[i] = temp;
             heapifyInteger(arr, i, 0);
         }
+        return arr;
     }
 
     /**
@@ -68,8 +70,9 @@ public class HeapSort implements SortingAlgorithm {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
      * @param arr Nieposortowany ciag obiektow.
+     * @return Posortowany ciag obiektow.
      */
-    private static void sortAsStrings(String[] arr) {
+    public static Object[] sortAsStrings(String[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
             heapifyString(arr, n, i);
@@ -79,6 +82,7 @@ public class HeapSort implements SortingAlgorithm {
             arr[i] = temp;
             heapifyString(arr, i, 0);
         }
+        return arr;
     }
 
     /**

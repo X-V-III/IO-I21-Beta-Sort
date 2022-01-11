@@ -32,21 +32,24 @@ public class QuickSort implements SortingAlgorithm {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
      * @param arr Nieposortowany ciag obiektow.
+     * @return Posortowany ciag obiektow.
      */
-    private static void sortAsStrings(String[] arr, int begin, int end) {
+    public static Object[] sortAsStrings(String[] arr, int begin, int end) {
         if (begin < end) {
             int partitionIndex = partition(arr, begin, end);
 
             sortAsStrings(arr, begin, partitionIndex - 1);
             sortAsStrings(arr, partitionIndex + 1, end);
         }
+        return arr;
     }
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @param arr Nieposortowany ciag obiektow.
+     * @return Posortowany ciag obiektow.
      */
-    private static void sortAsIntegers(String[] arr,int low, int high) {
+    public static Object[] sortAsIntegers(String[] arr, int low, int high) {
         int middle = low + (high - low) / 2;
         int opora = Integer.parseInt(arr[middle]);
 
@@ -74,6 +77,7 @@ public class QuickSort implements SortingAlgorithm {
 
         if (high > i)
             sortAsIntegers(arr, i, high);
+        return arr;
     }
 
     private static int partition(String[] arr, int begin, int end) {

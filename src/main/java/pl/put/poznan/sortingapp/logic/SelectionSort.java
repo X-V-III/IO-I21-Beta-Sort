@@ -28,8 +28,9 @@ public class SelectionSort implements SortingAlgorithm {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
      * @param arr Nieposortowany ciag obiektow.
+     * @return Posortowany ciag obiektow.
      */
-    private static void sortAsStrings(String[] arr) {
+    public static Object[] sortAsStrings(String[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int min_index = i;
 
@@ -41,13 +42,15 @@ public class SelectionSort implements SortingAlgorithm {
             arr[min_index] = arr[i];
             arr[i] = temp;
         }
+        return arr;
     }
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @param arr Nieposortowany ciag obiektow.
+     * @return Posortowany ciag obiektow.
      */
-    private static void sortAsIntegers(String[] arr) {
+    public static Object[] sortAsIntegers(String[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int min_index = i;
 
@@ -59,5 +62,6 @@ public class SelectionSort implements SortingAlgorithm {
             arr[min_index] = arr[i];
             arr[i] = temp;
         }
+        return arr;
     }
 }

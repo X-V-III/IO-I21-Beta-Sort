@@ -116,8 +116,9 @@ public class MergeSort implements SortingAlgorithm {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @param arr Nieposortowany ciag obiektow.
+     * @return Posortowany ciag obiektow.
      */
-    private static void sortAsIntegers(String[] arr, int l, int r) {
+    public static Object[] sortAsIntegers(String[] arr, int l, int r) {
         if (l < r) {
             int m = l + (r-l)/2;
 
@@ -126,13 +127,15 @@ public class MergeSort implements SortingAlgorithm {
 
             mergeInteger(arr, l, m, r);
         }
+        return arr;
     }
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
      * @param arr Nieposortowany ciag obiektow.
+     * @return Posortowany ciag obiektow.
      */
-    private static void sortAsStrings(String[] arr, int l, int r) {
+    public static Object[] sortAsStrings(String[] arr, int l, int r) {
         if (l < r) {
             int m = l + (r-l)/2;
 
@@ -141,5 +144,6 @@ public class MergeSort implements SortingAlgorithm {
 
             mergeString(arr, l, m, r);
         }
+        return arr;
     }
 }

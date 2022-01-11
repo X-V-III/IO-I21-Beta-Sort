@@ -28,7 +28,7 @@ public class BubbleSort implements SortingAlgorithm {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @param arr Nieposortowany ciag obiektow.
-     * @return
+     * @return Posortowany ciag obiektow.
      */
     public static Object[] sortAsIntegers(String[] arr) {
         int i, j;
@@ -48,6 +48,7 @@ public class BubbleSort implements SortingAlgorithm {
     /**
      * Metoda sortujaca podany ciag obiektow typu String jako String.
      * @param stringArr Nieposortowany ciag obiektow.
+     * @return Posortowany ciag obiektow.
      */
     public static String[] sortAsStrings(String[] stringArr) {
         String tempString;
