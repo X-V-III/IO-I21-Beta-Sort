@@ -3,7 +3,11 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego MergeSort.
  */
-public class MergeSort implements SortingAlgorithm {
+public class MergeSort extends SortingDecorator {
+
+    public MergeSort(SortingAlgorithm InputList) {
+        super(InputList);
+    }
 
     /**
      * Metoda sortujace podany ciag obiektow typu int algorytmem BubbleSort.
@@ -11,7 +15,7 @@ public class MergeSort implements SortingAlgorithm {
      * @param sortAs Sortować elementy jako obiekty jakiej klasy.
      * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
-    public static void sort(String[] arr, String sortAs) throws IllegalArgumentException {
+    public void sort(String[] arr, String sortAs) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
         if (arr.length == 0) throw new IllegalArgumentException();
@@ -21,7 +25,7 @@ public class MergeSort implements SortingAlgorithm {
         if (sortAs.compareToIgnoreCase("String") == 0) {
             sortAsStrings(arr, l, r);
         } else if (sortAs.compareToIgnoreCase("Integer") == 0) {
-            sortAsIntegers(arr, l, r);
+            sortAsIntegersMQ(arr, l, r);
         } else {
             throw new IllegalArgumentException();
         }
@@ -118,12 +122,13 @@ public class MergeSort implements SortingAlgorithm {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static Object[] sortAsIntegers(String[] arr, int l, int r) {
+    @Override
+    public Object[] sortAsIntegersMQ(String[] arr, int l, int r) {
         if (l < r) {
             int m = l + (r-l)/2;
 
-            sortAsIntegers(arr, l, m);
-            sortAsIntegers(arr, m + 1, r);
+            sortAsIntegersMQ(arr, l, m);
+            sortAsIntegersMQ(arr, m + 1, r);
 
             mergeInteger(arr, l, m, r);
         }
@@ -135,7 +140,8 @@ public class MergeSort implements SortingAlgorithm {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static Object[] sortAsStrings(String[] arr, int l, int r) {
+    @Override
+    public Object[] sortAsIntegersMQ(String[] arr, int l, int r) {
         if (l < r) {
             int m = l + (r-l)/2;
 

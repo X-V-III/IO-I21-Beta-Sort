@@ -3,7 +3,11 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego SelectionSort.
  */
-public class SelectionSort implements SortingAlgorithm {
+public class SelectionSort extends SortingDecorator {
+
+    public SelectionSort(SortingAlgorithm listInput) {
+        super(listInput);
+    }
 
     /**
      * Sortuje podany ciag obiektow algorytmem SelectionSort.
@@ -11,7 +15,7 @@ public class SelectionSort implements SortingAlgorithm {
      * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      *
      */
-    public static void sort(String[] arr, String sortAs) throws IllegalArgumentException {
+    public void sort(String[] arr, String sortAs) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
         if (arr.length == 0) throw new IllegalArgumentException();
@@ -30,7 +34,8 @@ public class SelectionSort implements SortingAlgorithm {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static Object[] sortAsStrings(String[] arr) {
+    @Override
+    public Object[] sortAsStrings(String[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int min_index = i;
 
@@ -50,7 +55,8 @@ public class SelectionSort implements SortingAlgorithm {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static Object[] sortAsIntegers(String[] arr) {
+    @Override
+    public Object[] sortAsIntegers(String[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int min_index = i;
 

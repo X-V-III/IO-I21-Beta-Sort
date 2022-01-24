@@ -1,6 +1,6 @@
 package pl.put.poznan.sortingapp.logic;
 
-public class SortingDecorator implements SortingAlgorithm{
+public abstract class SortingDecorator implements SortingAlgorithm{
 
     protected SortingAlgorithm listInput;
 
@@ -21,4 +21,10 @@ public class SortingDecorator implements SortingAlgorithm{
     public Object[] sortAsStrings(String[] arr) {
         return this.listInput.sortAsStrings(arr);
     }
+
+    @Override
+    public Object[] sortAsIntegersMQ(String[] arr, int l, int r){return this.listInput.sortAsIntegersMQ(arr, int l, int r);};
+
+    @Override
+    public Object[] sortAsStringsMQ(String[] arr, int l, int r){return this.listInput.sortAsStringsMQ(arr, int l, int r);};
 }

@@ -7,12 +7,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SelectionSortTest {
-
     private SelectionSort s;
+    private final String[] original = {"5", "1", "4", "2", "8"};
+
 
     @BeforeEach
     void setup(){
-        s = new SelectionSort();
+        InputList inputList = new InputList(original);
+        s = new SelectionSort(inputList);
     }
 
     @Test

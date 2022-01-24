@@ -9,10 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class InsertionSortTest {
 
     private InsertionSort a;
+    private final String[] original = {"5", "1", "4", "2", "8"};
 
     @BeforeEach
     void setup(){
-        a = new InsertionSort();
+        InputList inputList = new InputList(original);
+        a = new InsertionSort(inputList);
     }
 
     @Test

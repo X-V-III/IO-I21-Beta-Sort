@@ -3,14 +3,18 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego InsertionSort.
  */
-public class InsertionSort implements SortingAlgorithm {
+public class InsertionSort extends SortingDecorator {
+
+    public InsertionSort(SortingAlgorithm listInput) {
+        super(listInput);
+    }
 
     /**
      * Sortuje podany ciag obiektow typu String algorytmem InsertionSort.
      * @param arr Nieposortowany ciag obiektow.
      * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
-    public static void sort(String[] arr, String sortAs) throws IllegalArgumentException {
+    public void sort(String[] arr, String sortAs) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
         if (arr.length == 0) throw new IllegalArgumentException();
@@ -29,7 +33,8 @@ public class InsertionSort implements SortingAlgorithm {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static Object[] sortAsStrings(String[] arr) {
+    @Override
+    public Object[] sortAsStrings(String[] arr) {
         for (int i = 1; i < arr.length; ++i) {
             String key = arr[i];
             int j = i - 1;
@@ -47,7 +52,8 @@ public class InsertionSort implements SortingAlgorithm {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static Object[] sortAsIntegers(String[] arr) {
+    @Override
+    public Object[] sortAsIntegers(String[] arr) {
         for (int i = 1; i < arr.length; ++i) {
             int key = Integer.parseInt(arr[i]);
             int j = i - 1;
