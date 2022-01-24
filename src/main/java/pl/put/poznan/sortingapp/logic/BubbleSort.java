@@ -5,8 +5,8 @@ package pl.put.poznan.sortingapp.logic;
  */
 public class BubbleSort extends SortingDecorator {
 
-    public BubbleSort(SortingAlgorithm textInput) {
-        super(textInput);
+    public BubbleSort(SortingAlgorithm InputList) {
+        super(InputList);
     }
     /**
      * Metoda sortujace podany ciag obiektow typu int algorytmem BubbleSort.
@@ -33,6 +33,7 @@ public class BubbleSort extends SortingDecorator {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
+    @Override
     public Object[] sortAsIntegers(String[] arr) {
         int i, j;
         String swap;
@@ -53,7 +54,8 @@ public class BubbleSort extends SortingDecorator {
      * @param stringArr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static String[] sortAsStrings(String[] stringArr) {
+    @Override
+    public String[] sortAsStrings(String[] stringArr) {
         String tempString;
         for (int i = 0; i < stringArr.length - 1; i++) {
             for (int j = 0; j < stringArr.length - 1; j++) {

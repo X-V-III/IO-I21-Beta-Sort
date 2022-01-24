@@ -1,10 +1,10 @@
 package pl.put.poznan.sortingapp.logic;
 
-public class InputList implements SortingAlgorithm{
+public class InputList implements SortingAlgorithm {
+
     protected String[] arr;
 
-
-    public String[] getText() {
+    public String[] getArr() {
         return arr;
     }
 
@@ -14,6 +14,11 @@ public class InputList implements SortingAlgorithm{
 
     @Override
     public String[] sortAsIntegers(String[] arr) {
+        return this.arr;
+    }
+
+    @Override
+    public Object[] sortAsStrings(String[] arr) {
         return this.arr;
     }
 }

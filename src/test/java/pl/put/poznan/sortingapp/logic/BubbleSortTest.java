@@ -11,11 +11,12 @@ import static org.mockito.Mockito.when;
 class BubbleSortTest {
 
     private BubbleSort b;
+    private final String[] original = {"5", "1", "4", "2", "8"};
 
     @BeforeEach
     void setup(){
-        Object[] original = {"5","1", "4", "2", "8"};
-        b = new BubbleSort(original);
+        InputList inputList = new InputList(original);
+        b = new BubbleSort(inputList);
     }
 
     @Test

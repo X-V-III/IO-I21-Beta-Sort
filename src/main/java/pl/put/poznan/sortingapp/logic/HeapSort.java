@@ -3,7 +3,11 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedąca implementacją algorytmu sortującego HeapSort.
  */
-public class HeapSort implements SortingAlgorithm {
+public class HeapSort extends SortingDecorator {
+
+    public HeapSort(SortingAlgorithm InputList) {
+        super(InputList);
+    }
 
     /**
      * Metoda sortujace podany ciag obiektow typu int algorytmem Insertion Sort.
@@ -11,7 +15,7 @@ public class HeapSort implements SortingAlgorithm {
      * @param sortAs Sortować elementy jako obiekty jakiej klasy.
      * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
-    public static void sort(String[] arr, String sortAs) throws IllegalArgumentException {
+    public void sort(String[] arr, String sortAs) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
         if (arr.length == 0) throw new IllegalArgumentException();
@@ -30,7 +34,8 @@ public class HeapSort implements SortingAlgorithm {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static Object[] sortAsIntegers(String[] arr) {
+    @Override
+    public Object[] sortAsIntegers(String[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
             heapifyInteger(arr, n, i);
@@ -47,7 +52,7 @@ public class HeapSort implements SortingAlgorithm {
      * Metoda, sluzaca dla przeprowadzenia iteracji algorytmu Heap Sort dla Integer
      * @param arr Nieposortowany ciag obiektow.
      */
-    private static void heapifyInteger(String[] arr, int n, int i) {
+    private void heapifyInteger(String[] arr, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
         int r = 2 * i + 2;
@@ -72,7 +77,8 @@ public class HeapSort implements SortingAlgorithm {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static Object[] sortAsStrings(String[] arr) {
+    @Override
+    public Object[] sortAsStrings(String[] arr) {
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
             heapifyString(arr, n, i);
