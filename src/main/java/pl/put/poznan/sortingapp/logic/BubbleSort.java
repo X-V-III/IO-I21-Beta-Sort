@@ -3,15 +3,18 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego BubbleSort.
  */
-public class BubbleSort implements SortingAlgorithm {
+public class BubbleSort extends SortingDecorator {
 
+    public BubbleSort(SortingAlgorithm textInput) {
+        super(textInput);
+    }
     /**
      * Metoda sortujace podany ciag obiektow typu int algorytmem BubbleSort.
      * @param arr Nieposortowany ciag obiektow.
      * @param sortAs Sortować elementy jako obiekty jakiej klasy.
      * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
      */
-    public static void sort(String[] arr, String sortAs) throws IllegalArgumentException {
+    public void sort(String[] arr, String sortAs) throws IllegalArgumentException {
 
         // Throws an exception when arr is empty
         if (arr.length == 0) throw new IllegalArgumentException();
@@ -30,7 +33,7 @@ public class BubbleSort implements SortingAlgorithm {
      * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
-    public static Object[] sortAsIntegers(String[] arr) {
+    public Object[] sortAsIntegers(String[] arr) {
         int i, j;
         String swap;
         for (i = 0; i < arr.length; i++) {
