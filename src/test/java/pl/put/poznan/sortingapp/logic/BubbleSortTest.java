@@ -17,7 +17,7 @@ class BubbleSortTest {
     private final String[] original = {"5", "1", "4", "2", "8"};
 
     @BeforeEach
-    void setup(){
+    void setup() {
         InputList inputList = new InputList(original);
         b = new BubbleSort(inputList);
     }
@@ -25,26 +25,39 @@ class BubbleSortTest {
     @Test
     void sortAsIntegers() {
 
-        String[] sorted = {"1","2","4","5","8"};
-        Assertions.assertArrayEquals(sorted, b.sortAsIntegers());
+        String[] sorted = {"1", "2", "4", "5", "8"};
+        assertEquals(Arrays.toString(sorted), Arrays.toString(b.sortAsIntegers()));
     }
 
     @Test
     void sortAsStrings() {
-        String[] original = {"tata","mama", "ala"};
-        String[] sorted = {"ala","mama","tata"};
-        Assertions.assertArrayEquals(sorted, b.sortAsStrings(original));
+        String[] original = {"tata", "mama", "ala"};
+        InputList inputList = new InputList(original);
+        b = new BubbleSort(inputList);
+        String[] sorted = {"ala", "mama", "tata"};
+        assertEquals(Arrays.toString(sorted), Arrays.toString(b.sortAsIntegers()));
     }
 
     @Test
     public void bubbleSortMockInt() throws Exception {
         InputList mockObject = mock(InputList.class);
-        String[] sorted = {"1","2","4","5","8"};
+        String[] sorted = {"1", "2", "4", "5", "8"};
         when(mockObject.getArr()).thenReturn(new String[]{"5", "1", "4", "2", "8"});
         BubbleSort testedObject = new BubbleSort(mockObject);
         String[] result = testedObject.sortAsIntegers();
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
-
     }
+
+    @Test
+    public void bubbleSortMockStr() throws Exception {
+        InputList mockObject = mock(InputList.class);
+        String[] sorted = {"ala", "mama", "tata"};
+        when(mockObject.getArr()).thenReturn(new String[]{"tata", "mama", "ala"});
+        BubbleSort testedObject = new BubbleSort(mockObject);
+        String[] result = testedObject.sortAsStrings();
+        verify(mockObject).getArr();
+        Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
+    }
+
 }
