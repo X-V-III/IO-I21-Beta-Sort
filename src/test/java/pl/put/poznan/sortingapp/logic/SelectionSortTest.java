@@ -28,7 +28,7 @@ class SelectionSortTest {
     void sortAsStrings() {
         String[] original = {"tata","mama", "ala"};
         String[] sorted = {"ala","mama","tata"};
-        Assertions.assertArrayEquals(sorted, s.sortAsStrings(original));
+        Assertions.assertArrayEquals(sorted, s.sortAsStrings());
     }
 
 }

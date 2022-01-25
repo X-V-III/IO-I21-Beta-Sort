@@ -28,7 +28,7 @@ class HeapSortTest {
     void sortAsStrings() {
         String[] original = {"tata","mama", "ala"};
         String[] sorted = {"ala","mama","tata"};
-        Assertions.assertArrayEquals(sorted, h.sortAsStrings(original));
+        Assertions.assertArrayEquals(sorted, h.sortAsStrings());
     }
 
 }

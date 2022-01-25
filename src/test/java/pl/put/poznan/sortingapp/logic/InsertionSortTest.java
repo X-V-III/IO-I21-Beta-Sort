@@ -28,7 +28,7 @@ class InsertionSortTest {
     void sortAsStrings() {
         String[] original = {"tata","mama", "ala"};
         String[] sorted = {"ala","mama","tata"};
-        Assertions.assertArrayEquals(sorted, a.sortAsStrings(original));
+        Assertions.assertArrayEquals(sorted, a.sortAsStrings());
     }
 
 }
