@@ -11,7 +11,6 @@ public class InsertionSort extends SortingDecorator {
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
-     * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
     @Override

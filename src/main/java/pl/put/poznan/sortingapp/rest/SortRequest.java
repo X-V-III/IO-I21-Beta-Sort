@@ -33,6 +33,8 @@ public class SortRequest {
 
     /**
      * Transforms ArrayList of Maps to a list of Strings using key
+     * @param key Klucz.
+     * @return Ciąg .
      */
     public String[] getStringArrayByKey(String key) {
         String[] toSort = new String[values.size()];
@@ -46,6 +48,7 @@ public class SortRequest {
 
     /**
      * Getter sortAs
+     * @return Jak posortować.
      */
     public String getSortAs() {
         return sortAs;
@@ -53,6 +56,7 @@ public class SortRequest {
 
     /**
      * Getter sortAs
+     * @return Jak posortować.
      */
     public void setSortAs(String sortAs) {
         this.sortAs = sortAs;
@@ -60,6 +64,7 @@ public class SortRequest {
 
     /**
      * Getter klucza
+     * @return Jaki klucz.
      */
     public String getKey() {
         return key;
@@ -67,6 +72,7 @@ public class SortRequest {
 
     /**
      * Setter klucza
+     * @return Jaki klucz.
      */
     public void setKey(String key) {
         this.key = key;
@@ -74,6 +80,7 @@ public class SortRequest {
 
     /**
     * Getter wartosci.
+     * @return Wartości.
     */
     public ArrayList<Object> getValues() {
         return values;
@@ -81,6 +88,7 @@ public class SortRequest {
 
     /**
      * Setter wartosci.
+     * @return Wartości.
      */
     public void setValues(ArrayList<Object> values) {
         this.values = values;
@@ -88,6 +96,7 @@ public class SortRequest {
 
     /**
      * Getter listy algorytmow.
+     * @return Parametry.
      */
     public ArrayList<String> getParameters() {
         return parameters;
@@ -95,6 +104,7 @@ public class SortRequest {
 
     /**
      * Setter listy algorytmow.
+     * @return Parametry.
      */
     public void setParameters(ArrayList<String> parameters) {
         this.parameters = parameters;
@@ -102,6 +112,7 @@ public class SortRequest {
 
     /**
      * Getter wartosci odwracania.
+     * @return Czy posortowana.
      */
     public boolean isReversed() {
         return reversed;
@@ -109,6 +120,7 @@ public class SortRequest {
 
     /**
      * Setter wartosci odwracania.
+     * @return Czy posortowana.
      */
     public void setReversed(boolean reversed) {
         this.reversed = reversed;

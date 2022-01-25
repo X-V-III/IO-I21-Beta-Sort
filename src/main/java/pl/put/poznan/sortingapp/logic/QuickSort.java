@@ -26,6 +26,8 @@ public class QuickSort extends SortingDecorator {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
      * @param arr Nieposortowany ciag obiektow.
+     * @param begin Index początku sortowania.
+     * @param end Indeks końcu sortowania.
      * @return Posortowany ciag obiektow.
      */
     public  String[] sortAsStringsMQ(String[] arr, int begin, int end) {
@@ -41,6 +43,8 @@ public class QuickSort extends SortingDecorator {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @param arr Nieposortowany ciag obiektow.
+     * @param low Index początku sortowania.
+     * @param high Indeks końcu sortowania.
      * @return Posortowany ciag obiektow.
      */
     public static String[] sortAsIntegersMQ(String[] arr, int low, int high) {

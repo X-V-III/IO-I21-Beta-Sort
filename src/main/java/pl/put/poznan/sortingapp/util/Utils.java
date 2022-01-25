@@ -24,6 +24,8 @@ public class Utils {
 
     /**
      * Makes an array of String to array of int
+     * @param arr Ciag obiektow.
+     * @return Ciąg liczb.
      */
     public static int[] stringsToInts(String[] arr) {
         int[] arrInts = new int[arr.length];
@@ -35,6 +37,8 @@ public class Utils {
 
     /**
      * Makes an array of int to array of String
+     * @param arr Ciag obiektow.
+     * @return Ciąg stringów.
      */
     public static String[] intsToStrings(int[] arr) {
         String[] arrInts = new String[arr.length];

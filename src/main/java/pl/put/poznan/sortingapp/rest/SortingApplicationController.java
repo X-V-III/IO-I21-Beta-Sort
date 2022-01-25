@@ -25,6 +25,8 @@ public class SortingApplicationController {
 
     /**
      * Metoda implementujaca reakcje na zadanie GET w protokole HTTP.
+     * @param sr Request body.
+     * @return Posortowany ciąg z wszystkimi szczegółami.
      */
     @GetMapping(path = "/sorted", consumes = "application/json", produces = "application/json")
     public ResponseEntity<SortResponse> sort(@RequestBody SortRequest sr) {
@@ -56,18 +58,28 @@ public class SortingApplicationController {
                         break;
                     case "selection":
                         //SelectionSort.sort(original, sortAs);
+                        SelectionSort s = new SelectionSort(new InputList(original));
+                        s.sort(sortAs);
                         break;
                     case "insertion":
                         //InsertionSort.sort(original, sortAs);
+                        InsertionSort a = new InsertionSort(new InputList(original));
+                        a.sort(sortAs);
                         break;
                     case "heap":
                         //HeapSort.sort(original, sortAs);
+                        HeapSort h = new HeapSort(new InputList(original));
+                        h.sort(sortAs);
                         break;
                     case "merge":
                         //MergeSort.sort(original, sortAs);
+                        MergeSort m = new MergeSort(new InputList(original));
+                        m.sort(sortAs);
                         break;
                     case "quick":
                         //QuickSort.sort(original, sortAs);
+                        QuickSort q = new QuickSort(new InputList(original));
+                        q.sort(sortAs);
                         break;
                     default:
                         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

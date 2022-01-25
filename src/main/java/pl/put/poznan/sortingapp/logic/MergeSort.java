@@ -106,6 +106,8 @@ public class MergeSort extends SortingDecorator{
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @param arr Nieposortowany ciag obiektow.
+     * @param l Index początku sortowania.
+     * @param r Indeks końcu sortowania.
      * @return Posortowany ciag obiektow.
      */
     public String[] sortAsIntegersMQ(String[] arr, int l, int r) {
@@ -130,6 +132,8 @@ public class MergeSort extends SortingDecorator{
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
      * @param arr Nieposortowany ciag obiektow.
+     * @param l Index początku sortowania.
+     * @param r Indeks końcu sortowania.
      * @return Posortowany ciag obiektow.
      */
     public String[] sortAsStringsMQ(String[] arr, int l, int r) {
