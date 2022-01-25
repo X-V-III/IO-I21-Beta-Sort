@@ -3,6 +3,9 @@ package pl.put.poznan.sortingapp.logic;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -23,7 +26,7 @@ class BubbleSortTest {
     void sortAsIntegers() {
 
         String[] sorted = {"1","2","4","5","8"};
-        Assertions.assertArrayEquals(sorted, b.sortAsIntegers(original));
+        Assertions.assertArrayEquals(sorted, b.sortAsIntegers());
     }
 
     @Test
@@ -35,14 +38,13 @@ class BubbleSortTest {
 
     @Test
     public void bubbleSortMockInt() throws Exception {
-        SortingAlgorithm mockObject = mock(SortingAlgorithm.class);
-        String[] original = {"5","1", "4", "2", "8"};
+        InputList mockObject = mock(InputList.class);
         String[] sorted = {"1","2","4","5","8"};
-        when(mockObject.sortAsIntegers(original)).thenReturn(original);
+        when(mockObject.getArr()).thenReturn(new String[]{"5", "1", "4", "2", "8"});
         BubbleSort testedObject = new BubbleSort(mockObject);
-        Object[] result = testedObject.sortAsIntegers(original);
-        verify(mockObject).sortAsIntegers(original);
-        Assertions.assertEquals( sorted, result);
+        String[] result = testedObject.sortAsIntegers();
+        verify(mockObject).getArr();
+        Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
 
     }
 }

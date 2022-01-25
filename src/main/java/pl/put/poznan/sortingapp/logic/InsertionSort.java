@@ -5,27 +5,8 @@ package pl.put.poznan.sortingapp.logic;
  */
 public class InsertionSort extends SortingDecorator {
 
-    public InsertionSort(SortingAlgorithm listInput) {
+    public InsertionSort(InputList listInput) {
         super(listInput);
-    }
-
-    /**
-     * Sortuje podany ciag obiektow typu String algorytmem InsertionSort.
-     * @param arr Nieposortowany ciag obiektow.
-     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
-     */
-    public void sort(String[] arr, String sortAs) throws IllegalArgumentException {
-
-        // Throws an exception when arr is empty
-        if (arr.length == 0) throw new IllegalArgumentException();
-
-        if (sortAs.compareToIgnoreCase("String") == 0) {
-            sortAsStrings(arr);
-        } else if (sortAs.compareToIgnoreCase("Integer") == 0) {
-            sortAsIntegers(arr);
-        } else {
-            throw new IllegalArgumentException();
-        }
     }
 
     /**
@@ -34,7 +15,8 @@ public class InsertionSort extends SortingDecorator {
      * @return Posortowany ciag obiektow.
      */
     @Override
-    public Object[] sortAsStrings(String[] arr) {
+    public String[] sortAsStrings() {
+        String[] arr = this.listInput.getArr();
         for (int i = 1; i < arr.length; ++i) {
             String key = arr[i];
             int j = i - 1;
@@ -49,11 +31,11 @@ public class InsertionSort extends SortingDecorator {
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
-     * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
     @Override
-    public Object[] sortAsIntegers(String[] arr) {
+    public String[] sortAsIntegers() {
+        String[] arr = this.listInput.getArr();
         for (int i = 1; i < arr.length; ++i) {
             int key = Integer.parseInt(arr[i]);
             int j = i - 1;

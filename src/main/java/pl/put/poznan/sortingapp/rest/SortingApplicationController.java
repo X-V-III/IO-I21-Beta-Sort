@@ -51,6 +51,8 @@ public class SortingApplicationController {
                 switch (algName) {
                     case "bubble":
                         //BubbleSort.sort(original, sortAs);
+                        BubbleSort b = new BubbleSort(new InputList(original));
+                        b.sort(sortAs);
                         break;
                     case "selection":
                         //SelectionSort.sort(original, sortAs);

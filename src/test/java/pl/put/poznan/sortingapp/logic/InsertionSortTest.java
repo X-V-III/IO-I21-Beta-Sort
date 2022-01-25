@@ -21,7 +21,7 @@ class InsertionSortTest {
     void sortAsIntegers() {
         String[] original = {"5","1", "4", "2", "8"};
         String[] sorted = {"1","2","4","5","8"};
-        Assertions.assertArrayEquals(sorted, a.sortAsIntegers(original));
+        Assertions.assertArrayEquals(sorted, a.sortAsIntegers());
     }
 
     @Test

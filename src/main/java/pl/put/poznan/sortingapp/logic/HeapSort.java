@@ -5,37 +5,17 @@ package pl.put.poznan.sortingapp.logic;
  */
 public class HeapSort extends SortingDecorator {
 
-    public HeapSort(SortingAlgorithm InputList) {
+    public HeapSort(InputList InputList) {
         super(InputList);
     }
 
     /**
-     * Metoda sortujace podany ciag obiektow typu int algorytmem Insertion Sort.
-     * @param arr Nieposortowany ciag obiektow.
-     * @param sortAs Sortować elementy jako obiekty jakiej klasy.
-     * @throws IllegalArgumentException Kiedy podany ciag jest pusty badz niepoprawny, konczymy bledem.
-     */
-    public void sort(String[] arr, String sortAs) throws IllegalArgumentException {
-
-        // Throws an exception when arr is empty
-        if (arr.length == 0) throw new IllegalArgumentException();
-
-        if (sortAs.compareToIgnoreCase("String") == 0) {
-            sortAsStrings(arr);
-        } else if (sortAs.compareToIgnoreCase("Integer") == 0) {
-            sortAsIntegers(arr);
-        } else {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
-     * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
     @Override
-    public Object[] sortAsIntegers(String[] arr) {
+    public String[] sortAsIntegers() {
+        String[] arr = this.listInput.getArr();
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
             heapifyInteger(arr, n, i);
@@ -74,11 +54,11 @@ public class HeapSort extends SortingDecorator {
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
-     * @param arr Nieposortowany ciag obiektow.
      * @return Posortowany ciag obiektow.
      */
     @Override
-    public Object[] sortAsStrings(String[] arr) {
+    public String[] sortAsStrings() {
+        String[] arr = this.listInput.getArr();
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--)
             heapifyString(arr, n, i);
