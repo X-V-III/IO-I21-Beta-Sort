@@ -22,9 +22,9 @@ public abstract class SortingDecorator implements SortingAlgorithm{
         return this.listInput.sortAsStrings(arr);
     }
 
-    @Override
-    public Object[] sortAsIntegersMQ(String[] arr, int l, int r){return this.listInput.sortAsIntegersMQ(arr, int l, int r);};
-
-    @Override
-    public Object[] sortAsStringsMQ(String[] arr, int l, int r){return this.listInput.sortAsStringsMQ(arr, int l, int r);};
+//    @Override
+//    public Object[] sortAsIntegersMQ(String[] arr, int l, int r){return this.listInput.sortAsIntegersMQ(arr, int l, int r);};
+//
+//    @Override
+//    public Object[] sortAsStringsMQ(String[] arr, int l, int r){return this.listInput.sortAsStringsMQ(arr, int l, int r);};
 }

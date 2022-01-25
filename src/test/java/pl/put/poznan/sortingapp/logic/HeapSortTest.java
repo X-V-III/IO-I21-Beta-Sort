@@ -9,10 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class HeapSortTest {
 
     private HeapSort h;
+    private final String[] original = {"5", "1", "4", "2", "8"};
 
     @BeforeEach
     void setup(){
-        h = new HeapSort();
+        InputList inputList = new InputList(original);
+        h = new HeapSort(inputList);
     }
 
     @Test

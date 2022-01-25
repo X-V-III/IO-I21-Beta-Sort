@@ -21,7 +21,7 @@ import static pl.put.poznan.sortingapp.util.Utils.*;
 @RestController
 public class SortingApplicationController {
 
-    private static final Logger logger = LoggerFactory.getLogger(SortingApplicationController.class);
+    private final Logger logger = LoggerFactory.getLogger(SortingApplicationController.class);
 
     /**
      * Metoda implementujaca reakcje na zadanie GET w protokole HTTP.
@@ -50,22 +50,22 @@ public class SortingApplicationController {
             try {
                 switch (algName) {
                     case "bubble":
-                        BubbleSort.sort(original, sortAs);
+                        //BubbleSort.sort(original, sortAs);
                         break;
                     case "selection":
-                        SelectionSort.sort(original, sortAs);
+                        //SelectionSort.sort(original, sortAs);
                         break;
                     case "insertion":
-                        InsertionSort.sort(original, sortAs);
+                        //InsertionSort.sort(original, sortAs);
                         break;
                     case "heap":
-                        HeapSort.sort(original, sortAs);
+                        //HeapSort.sort(original, sortAs);
                         break;
                     case "merge":
-                        MergeSort.sort(original, sortAs);
+                        //MergeSort.sort(original, sortAs);
                         break;
                     case "quick":
-                        QuickSort.sort(original, sortAs);
+                        //QuickSort.sort(original, sortAs);
                         break;
                     default:
                         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
