@@ -56,7 +56,7 @@ public class SortRequest {
 
     /**
      * Getter sortAs
-     * @return Jak posortować.
+     * @param sortAs Jak posortować.
      */
     public void setSortAs(String sortAs) {
         this.sortAs = sortAs;
@@ -72,7 +72,7 @@ public class SortRequest {
 
     /**
      * Setter klucza
-     * @return Jaki klucz.
+     * @param key  Jaki klucz.
      */
     public void setKey(String key) {
         this.key = key;
@@ -88,7 +88,7 @@ public class SortRequest {
 
     /**
      * Setter wartosci.
-     * @return Wartości.
+     * @param values  Wartości.
      */
     public void setValues(ArrayList<Object> values) {
         this.values = values;
@@ -104,7 +104,7 @@ public class SortRequest {
 
     /**
      * Setter listy algorytmow.
-     * @return Parametry.
+     * @param parameters  Parametry.
      */
     public void setParameters(ArrayList<String> parameters) {
         this.parameters = parameters;
@@ -120,7 +120,7 @@ public class SortRequest {
 
     /**
      * Setter wartosci odwracania.
-     * @return Czy posortowana.
+     * @param reversed  Czy posortowana.
      */
     public void setReversed(boolean reversed) {
         this.reversed = reversed;

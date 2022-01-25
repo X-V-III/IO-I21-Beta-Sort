@@ -34,7 +34,7 @@ public class SortResponse {
 
     /**
      * Setter posortowanego ciagu obiektow.
-     * @return Posortowany ciąg.
+     * @param sortedArray  Posortowany ciąg.
      */
     public void setSortedArray(String[] sortedArray) {
         this.sortedArray = sortedArray;
