@@ -23,6 +23,12 @@ class QuickSortTest {
     }
 
     @Test
+    void sortAsIntegers() {
+        String[] sorted = {"1","2","4","5","8"};
+        assertEquals(Arrays.toString(sorted), Arrays.toString(q.sortAsIntegers(iterations)));
+    }
+
+    @Test
     void sortAsStrings() {
         String[] original = {"tata","mama", "ala"};
         InputList inputList = new InputList(original);
