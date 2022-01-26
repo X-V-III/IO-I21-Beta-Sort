@@ -53,32 +53,26 @@ public class SortingApplicationController {
             try {
                 switch (algName) {
                     case "bubble":
-                        //BubbleSort.sort(original, sortAs);
                         BubbleSort b = new BubbleSort(new InputList(original));
                         b.sort(sortAs, iterations);
                         break;
                     case "selection":
-                        //SelectionSort.sort(original, sortAs);
                         SelectionSort s = new SelectionSort(new InputList(original));
                         s.sort(sortAs, iterations);
                         break;
                     case "insertion":
-                        //InsertionSort.sort(original, sortAs);
                         InsertionSort a = new InsertionSort(new InputList(original));
                         a.sort(sortAs, iterations);
                         break;
                     case "heap":
-                        //HeapSort.sort(original, sortAs);
                         HeapSort h = new HeapSort(new InputList(original));
                         h.sort(sortAs, iterations);
                         break;
                     case "merge":
-                        //MergeSort.sort(original, sortAs);
                         MergeSort m = new MergeSort(new InputList(original));
                         m.sort(sortAs, iterations);
                         break;
                     case "quick":
-                        //QuickSort.sort(original, sortAs);
                         QuickSort q = new QuickSort(new InputList(original));
                         q.sort(sortAs, iterations);
                         break;

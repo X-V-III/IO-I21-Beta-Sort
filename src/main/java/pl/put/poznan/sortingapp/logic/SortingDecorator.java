@@ -8,10 +8,6 @@ public class SortingDecorator implements SortingAlgorithm{
         this.listInput = listInput;
     }
 
-    public InputList getListInput() {
-        return listInput;
-    }
-
     /**
      * Metoda sortujace podany ciag obiektow typu int algorytmem BubbleSort.
      * @param sortAs Sortować elementy jako obiekty jakiej klasy.
@@ -41,10 +37,4 @@ public class SortingDecorator implements SortingAlgorithm{
     public String[] sortAsStrings(int iterations) {
         return this.listInput.getArr();
     }
-
-//    @Override
-//    public Object[] sortAsIntegersMQ(String[] arr, int l, int r){return this.listInput.sortAsIntegersMQ(arr, int l, int r);};
-//
-//    @Override
-//    public Object[] sortAsStringsMQ(String[] arr, int l, int r){return this.listInput.sortAsStringsMQ(arr, int l, int r);};
 }

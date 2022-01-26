@@ -36,7 +36,7 @@ class BubbleSortTest {
         InputList inputList = new InputList(original);
         b = new BubbleSort(inputList);
         String[] sorted = {"ala", "mama", "tata"};
-        assertEquals(Arrays.toString(sorted), Arrays.toString(b.sortAsIntegers(iterations)));
+        assertEquals(Arrays.toString(sorted), Arrays.toString(b.sortAsStrings(iterations)));
     }
 
     @Test
