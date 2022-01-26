@@ -76,6 +76,18 @@ public class SortingApplicationController {
                         QuickSort q = new QuickSort(new InputList(original));
                         q.sort(sortAs, iterations);
                         break;
+                    case "auto":
+                        if (sortAs.compareToIgnoreCase("String") == 0) {
+                            SelectionSort autoI = new SelectionSort(new InputList(original));
+                            autoI.sort(sortAs, iterations);
+                            break;
+                        }
+                        else if (sortAs.compareToIgnoreCase("Integer") == 0) {
+                            QuickSort autoI = new QuickSort(new InputList(original));
+                            autoI.sort(sortAs, iterations);
+                            break;
+                        }
+
                     default:
                         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
                 }
