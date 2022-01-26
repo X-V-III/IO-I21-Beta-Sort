@@ -13,6 +13,7 @@ class InsertionSortTest {
 
     private InsertionSort a;
     private final String[] original = {"5", "1", "4", "2", "8"};
+    private int iterations = 0;
 
     @BeforeEach
     void setup(){
@@ -23,7 +24,7 @@ class InsertionSortTest {
     @Test
     void sortAsIntegers() {
         String[] sorted = {"1","2","4","5","8"};
-        assertEquals(Arrays.toString(sorted), Arrays.toString(a.sortAsIntegers()));
+        assertEquals(Arrays.toString(sorted), Arrays.toString(a.sortAsIntegers(iterations)));
     }
 
     @Test
@@ -32,7 +33,7 @@ class InsertionSortTest {
         InputList inputList = new InputList(original);
         a = new InsertionSort(inputList);
         String[] sorted = {"ala","tata","waz"};
-        assertEquals(Arrays.toString(sorted), Arrays.toString(a.sortAsStrings()));
+        assertEquals(Arrays.toString(sorted), Arrays.toString(a.sortAsStrings(iterations)));
     }
 
     @Test
@@ -41,7 +42,7 @@ class InsertionSortTest {
         String[] sorted = {"1","2","4","5","8"};
         when(mockObject.getArr()).thenReturn(new String[]{"5", "1", "4", "2", "8"});
         InsertionSort testedObject = new InsertionSort(mockObject);
-        String[] result = testedObject.sortAsIntegers();
+        String[] result = testedObject.sortAsIntegers(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }
@@ -52,7 +53,7 @@ class InsertionSortTest {
         String[] sorted = {"ala", "mama", "tata"};
         when(mockObject.getArr()).thenReturn(new String[]{"tata", "mama", "ala"});
         InsertionSort testedObject = new InsertionSort(mockObject);
-        String[] result = testedObject.sortAsStrings();
+        String[] result = testedObject.sortAsStrings(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }

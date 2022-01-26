@@ -14,6 +14,7 @@ class MergeSortTest {
 
     private MergeSort m;
     private final String[] original = {"5", "1", "4", "2", "8"};
+    private int iterations = 0;
 
     @BeforeEach
     void setup(){
@@ -24,7 +25,7 @@ class MergeSortTest {
     @Test
     void sortAsIntegers() {
         String[] sorted = {"1","2","4","5","8"};
-        assertEquals(Arrays.toString(sorted), Arrays.toString(m.sortAsIntegers()));
+        assertEquals(Arrays.toString(sorted), Arrays.toString(m.sortAsIntegers(iterations)));
     }
 
     @Test
@@ -33,7 +34,7 @@ class MergeSortTest {
         InputList inputList = new InputList(original);
         m = new MergeSort(inputList);
         String[] sorted = {"ala","mama","tata"};
-        assertEquals(Arrays.toString(sorted), Arrays.toString(m.sortAsStrings()));
+        assertEquals(Arrays.toString(sorted), Arrays.toString(m.sortAsStrings(iterations)));
     }
 
     @Test
@@ -42,7 +43,7 @@ class MergeSortTest {
         String[] sorted = {"1", "2", "4", "5", "8"};
         when(mockObject.getArr()).thenReturn(new String[]{"5", "1", "4", "2", "8"});
         MergeSort testedObject = new MergeSort(mockObject);
-        String[] result = testedObject.sortAsIntegers();
+        String[] result = testedObject.sortAsIntegers(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }
@@ -53,7 +54,7 @@ class MergeSortTest {
         String[] sorted = {"ala", "mama", "tata"};
         when(mockObject.getArr()).thenReturn(new String[]{"tata", "mama", "ala"});
         MergeSort testedObject = new MergeSort(mockObject);
-        String[] result = testedObject.sortAsStrings();
+        String[] result = testedObject.sortAsStrings(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }

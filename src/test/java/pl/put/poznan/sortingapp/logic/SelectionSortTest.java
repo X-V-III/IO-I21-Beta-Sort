@@ -13,6 +13,7 @@ import static org.mockito.Mockito.verify;
 class SelectionSortTest {
     private SelectionSort s;
     private final String[] original = {"5", "1", "4", "2", "8"};
+    private int iterations = 0;
 
     @BeforeEach
     void setup(){
@@ -23,7 +24,7 @@ class SelectionSortTest {
     @Test
     void sortAsIntegers() {
         String[] sorted = {"1","2","4","5","8"};
-        assertEquals(Arrays.toString(sorted), Arrays.toString(s.sortAsIntegers()));
+        assertEquals(Arrays.toString(sorted), Arrays.toString(s.sortAsIntegers(iterations)));
     }
 
     @Test
@@ -32,7 +33,7 @@ class SelectionSortTest {
         InputList inputList = new InputList(original);
         s = new SelectionSort(inputList);
         String[] sorted = {"ala","mama","tata"};
-        Assertions.assertArrayEquals(sorted, s.sortAsStrings());
+        Assertions.assertArrayEquals(sorted, s.sortAsStrings(iterations));
     }
 
     @Test
@@ -41,7 +42,7 @@ class SelectionSortTest {
         String[] sorted = {"1", "2", "4", "5", "8"};
         when(mockObject.getArr()).thenReturn(new String[]{"5", "1", "4", "2", "8"});
         SelectionSort testedObject = new SelectionSort(mockObject);
-        String[] result = testedObject.sortAsIntegers();
+        String[] result = testedObject.sortAsIntegers(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }
@@ -52,7 +53,7 @@ class SelectionSortTest {
         String[] sorted = {"ala", "mama", "tata"};
         when(mockObject.getArr()).thenReturn(new String[]{"tata", "mama", "ala"});
         SelectionSort testedObject = new SelectionSort(mockObject);
-        String[] result = testedObject.sortAsStrings();
+        String[] result = testedObject.sortAsStrings(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }

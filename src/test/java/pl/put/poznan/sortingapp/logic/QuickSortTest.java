@@ -14,6 +14,7 @@ class QuickSortTest {
 
     private QuickSort q;
     private final String[] original = {"5", "1", "4", "2", "8"};
+    private int iterations = 0;
 
     @BeforeEach
     void setup(){
@@ -27,7 +28,7 @@ class QuickSortTest {
         InputList inputList = new InputList(original);
         q = new QuickSort(inputList);
         String[] sorted = {"ala","mama","tata"};
-        assertEquals(Arrays.toString(sorted), Arrays.toString(q.sortAsStrings()));
+        assertEquals(Arrays.toString(sorted), Arrays.toString(q.sortAsStrings(iterations)));
     }
 
     @Test
@@ -36,7 +37,7 @@ class QuickSortTest {
         String[] sorted = {"ala", "mama", "tata"};
         when(mockObject.getArr()).thenReturn(new String[]{"tata", "mama", "ala"});
         QuickSort testedObject = new QuickSort(mockObject);
-        String[] result = testedObject.sortAsStrings();
+        String[] result = testedObject.sortAsStrings(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }

@@ -10,16 +10,22 @@ public class QuickSort extends SortingDecorator {
     }
 
     @Override
-    public String[] sortAsIntegers() {
+    /**
+     * @param iterations  liczba iteracji sortowania.
+     */
+    public String[] sortAsIntegers(int iterations) {
         String[] arr = this.listInput.getArr();
-        String[] res = sortAsIntegersMQ(arr, 0, arr.length - 1);
+        String[] res = sortAsIntegersMQ(arr, 0, arr.length - 1, iterations);
         return res;
     }
 
     @Override
-    public String[] sortAsStrings() {
+    /**
+     * @param iterations  liczba iteracji sortowania.
+     */
+    public String[] sortAsStrings(int iterations) {
         String[] arr = this.listInput.getArr();
-        String[] res = sortAsStringsMQ(arr, 0, arr.length - 1);
+        String[] res = sortAsStringsMQ(arr, 0, arr.length - 1, iterations);
         return res;
     }
 
@@ -28,14 +34,24 @@ public class QuickSort extends SortingDecorator {
      * @param arr Nieposortowany ciag obiektow.
      * @param begin Index początku sortowania.
      * @param end Indeks końcu sortowania.
+     * @param iterations  liczba iteracji sortowania.
      * @return Posortowany ciag obiektow.
      */
-    public  String[] sortAsStringsMQ(String[] arr, int begin, int end) {
+    public  String[] sortAsStringsMQ(String[] arr, int begin, int end, int iterations) {
+        int licznik = 0;
+
+        if (iterations <= 0) {
+            iterations = 1000000000;
+        }
         if (begin < end) {
+            licznik++;
+            if (licznik >= iterations) {
+                return arr;
+            }
             int partitionIndex = partition(arr, begin, end);
 
-            sortAsStringsMQ(arr, begin, partitionIndex - 1);
-            sortAsStringsMQ(arr, partitionIndex + 1, end);
+            sortAsStringsMQ(arr, begin, partitionIndex - 1, iterations);
+            sortAsStringsMQ(arr, partitionIndex + 1, end, iterations);
         }
         return arr;
     }
@@ -45,11 +61,17 @@ public class QuickSort extends SortingDecorator {
      * @param arr Nieposortowany ciag obiektow.
      * @param low Index początku sortowania.
      * @param high Indeks końcu sortowania.
+     * @param iterations  liczba iteracji sortowania.
      * @return Posortowany ciag obiektow.
      */
-    public static String[] sortAsIntegersMQ(String[] arr, int low, int high) {
+    public static String[] sortAsIntegersMQ(String[] arr, int low, int high, int iterations) {
         int middle = low + (high - low) / 2;
         int opora = Integer.parseInt(arr[middle]);
+        /*int licznik = 0;
+
+        if (iterations <= 0) {
+            iterations = 1000000000;
+        }*/
 
         int i = low, j = high;
         while (i <= j) {
@@ -62,6 +84,11 @@ public class QuickSort extends SortingDecorator {
             }
 
             if (i <= j) {
+                /*
+                licznik++;
+                if (licznik >= iterations) {
+                    return arr;
+                }*/
                 String temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
@@ -71,10 +98,10 @@ public class QuickSort extends SortingDecorator {
         }
 
         if (low < j)
-            sortAsIntegersMQ(arr, low, j);
+            sortAsIntegersMQ(arr, low, j, iterations);
 
         if (high > i)
-            sortAsIntegersMQ(arr, i, high);
+            sortAsIntegersMQ(arr, i, high, iterations);
         return arr;
     }
 

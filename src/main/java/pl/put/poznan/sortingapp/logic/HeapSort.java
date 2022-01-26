@@ -11,15 +11,24 @@ public class HeapSort extends SortingDecorator {
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
+     * @param iterations  liczba iteracji sortowania.
      * @return Posortowany ciag obiektow.
      */
     @Override
-    public String[] sortAsIntegers() {
+    public String[] sortAsIntegers(int iterations) {
         String[] arr = this.listInput.getArr();
         int n = arr.length;
+        int licznik = 0;
+        if (iterations <= 0) {
+            iterations = 1000000000;
+        }
         for (int i = n / 2 - 1; i >= 0; i--)
             heapifyInteger(arr, n, i);
         for (int i = n - 1; i > 0; i--) {
+            licznik++;
+            if (licznik >= iterations) {
+                return arr;
+            }
             String temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;
@@ -54,15 +63,25 @@ public class HeapSort extends SortingDecorator {
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
+     * @param iterations  liczba iteracji sortowania.
      * @return Posortowany ciag obiektow.
      */
     @Override
-    public String[] sortAsStrings() {
+    public String[] sortAsStrings(int iterations) {
         String[] arr = this.listInput.getArr();
         int n = arr.length;
+        int licznik = 0;
+        if (iterations <= 0) {
+            iterations = 1000000000;
+        }
+
         for (int i = n / 2 - 1; i >= 0; i--)
             heapifyString(arr, n, i);
         for (int i = n - 1; i > 0; i--) {
+            licznik++;
+            if (licznik >= iterations) {
+                return arr;
+            }
             String temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;

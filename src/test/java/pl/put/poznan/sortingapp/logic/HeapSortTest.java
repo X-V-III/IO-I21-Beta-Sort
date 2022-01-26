@@ -14,6 +14,7 @@ class HeapSortTest {
 
     private HeapSort h;
     private final String[] original = {"5", "1", "4", "2", "8"};
+    private int iterations = 0;
 
     @BeforeEach
     void setup(){
@@ -25,7 +26,7 @@ class HeapSortTest {
     void sortAsIntegers() {
         String[] original = {"5","1", "4", "2", "8"};
         String[] sorted = {"1","2","4","5","8"};
-        Assertions.assertArrayEquals(sorted, h.sortAsIntegers());
+        Assertions.assertArrayEquals(sorted, h.sortAsIntegers(iterations));
     }
 
     @Test
@@ -34,7 +35,7 @@ class HeapSortTest {
         InputList inputList = new InputList(original);
         h = new HeapSort(inputList);
         String[] sorted = {"ala","mama","tata"};
-        Assertions.assertArrayEquals(sorted, h.sortAsStrings());
+        Assertions.assertArrayEquals(sorted, h.sortAsStrings(iterations));
     }
 
     @Test
@@ -43,7 +44,7 @@ class HeapSortTest {
         String[] sorted = {"1", "2", "4", "5", "8"};
         when(mockObject.getArr()).thenReturn(new String[]{"5", "1", "4", "2", "8"});
         HeapSort testedObject = new HeapSort(mockObject);
-        String[] result = testedObject.sortAsIntegers();
+        String[] result = testedObject.sortAsIntegers(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }
@@ -54,7 +55,7 @@ class HeapSortTest {
         String[] sorted = {"ala", "mama", "tata"};
         when(mockObject.getArr()).thenReturn(new String[]{"tata", "mama", "ala"});
         HeapSort testedObject = new HeapSort(mockObject);
-        String[] result = testedObject.sortAsStrings();
+        String[] result = testedObject.sortAsStrings(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }

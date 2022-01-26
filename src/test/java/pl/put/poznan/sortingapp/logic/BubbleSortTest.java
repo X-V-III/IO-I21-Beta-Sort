@@ -15,6 +15,7 @@ class BubbleSortTest {
 
     private BubbleSort b;
     private final String[] original = {"5", "1", "4", "2", "8"};
+    private int iterations = 0;
 
     @BeforeEach
     void setup() {
@@ -26,7 +27,7 @@ class BubbleSortTest {
     void sortAsIntegers() {
 
         String[] sorted = {"1", "2", "4", "5", "8"};
-        assertEquals(Arrays.toString(sorted), Arrays.toString(b.sortAsIntegers()));
+        assertEquals(Arrays.toString(sorted), Arrays.toString(b.sortAsIntegers(iterations)));
     }
 
     @Test
@@ -35,7 +36,7 @@ class BubbleSortTest {
         InputList inputList = new InputList(original);
         b = new BubbleSort(inputList);
         String[] sorted = {"ala", "mama", "tata"};
-        assertEquals(Arrays.toString(sorted), Arrays.toString(b.sortAsIntegers()));
+        assertEquals(Arrays.toString(sorted), Arrays.toString(b.sortAsIntegers(iterations)));
     }
 
     @Test
@@ -44,7 +45,7 @@ class BubbleSortTest {
         String[] sorted = {"1", "2", "4", "5", "8"};
         when(mockObject.getArr()).thenReturn(new String[]{"5", "1", "4", "2", "8"});
         BubbleSort testedObject = new BubbleSort(mockObject);
-        String[] result = testedObject.sortAsIntegers();
+        String[] result = testedObject.sortAsIntegers(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }
@@ -55,7 +56,7 @@ class BubbleSortTest {
         String[] sorted = {"ala", "mama", "tata"};
         when(mockObject.getArr()).thenReturn(new String[]{"tata", "mama", "ala"});
         BubbleSort testedObject = new BubbleSort(mockObject);
-        String[] result = testedObject.sortAsStrings();
+        String[] result = testedObject.sortAsStrings(iterations);
         verify(mockObject).getArr();
         Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
     }

@@ -14,6 +14,7 @@ public class SortRequest {
     private String key;
     private boolean reversed;
     private String sortAs;
+    private int iterations;
 
     /**
      * Konstruktor klasy SortRequest.
@@ -22,13 +23,15 @@ public class SortRequest {
      * @param reversed Czy odwracac wynik.
      * @param key Klucz
      * @param sortAs Sortować elementy jako obiekty jakiej klasy
+     * @param iterations liczba iteracji
      * */
-    public SortRequest(ArrayList<Object> values, ArrayList<String> parameters, boolean reversed, String key, String sortAs) {
+    public SortRequest(ArrayList<Object> values, ArrayList<String> parameters, boolean reversed, String key, String sortAs, int iterations) {
         this.values = values;
         this.parameters = parameters;
         this.reversed = reversed;
         this.key = key;
         this.sortAs = sortAs;
+        this.iterations = iterations;
     }
 
     /**
@@ -124,5 +127,21 @@ public class SortRequest {
      */
     public void setReversed(boolean reversed) {
         this.reversed = reversed;
+    }
+
+    /**
+     * Getter liczby iteracji.
+     * @return iterations
+     */
+    public int getIterations() {
+        return iterations;
+    }
+
+    /**
+     * Setter liczby iteracji.
+     * @param iterations
+     */
+    public void setIterations(int iterations) {
+        this.iterations = iterations;
     }
 }
