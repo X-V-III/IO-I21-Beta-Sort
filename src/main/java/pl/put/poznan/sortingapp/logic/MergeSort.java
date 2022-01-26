@@ -97,23 +97,38 @@ public class MergeSort extends SortingDecorator{
     }
 
     @Override
-    public String[] sortAsIntegers() {
+    /**
+     * @param iterations  liczba iteracji sortowania.
+     */
+    public String[] sortAsIntegers(int iterations) {
         String[] arr = this.listInput.getArr();
-        String[] res = sortAsIntegersMQ(arr, 0, arr.length - 1);
+        String[] res = sortAsIntegersMQ(arr, 0, arr.length - 1, iterations);
         return res;
     }
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @param arr Nieposortowany ciag obiektow.
+     * @param l Index początku sortowania.
+     * @param r Indeks końcu sortowania.
      * @return Posortowany ciag obiektow.
      */
-    public String[] sortAsIntegersMQ(String[] arr, int l, int r) {
+    public String[] sortAsIntegersMQ(String[] arr, int l, int r, int iterations) {
+        int licznik = 0;
+
+        if (iterations <= 0) {
+            iterations = 1000000000;
+        }
+
         if (l < r) {
+            licznik++;
+            if (licznik >= iterations) {
+                return arr;
+            }
             int m = l + (r-l)/2;
 
-            sortAsIntegersMQ(arr, l, m);
-            sortAsIntegersMQ(arr, m + 1, r);
+            sortAsIntegersMQ(arr, l, m, iterations);
+            sortAsIntegersMQ(arr, m + 1, r, iterations);
 
             mergeInteger(arr, l, m, r);
         }
@@ -121,23 +136,37 @@ public class MergeSort extends SortingDecorator{
     }
 
     @Override
-    public String[] sortAsStrings() {
+    /**
+     * @param iterations  liczba iteracji sortowania.
+     */
+    public String[] sortAsStrings(int iterations) {
         String[] arr = this.listInput.getArr();
-        String[] res = sortAsStringsMQ(arr, 0, arr.length - 1);
+        String[] res = sortAsStringsMQ(arr, 0, arr.length - 1, iterations);
         return res;
     }
 
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
      * @param arr Nieposortowany ciag obiektow.
+     * @param l Index początku sortowania.
+     * @param r Indeks końcu sortowania.
      * @return Posortowany ciag obiektow.
      */
-    public String[] sortAsStringsMQ(String[] arr, int l, int r) {
+    public String[] sortAsStringsMQ(String[] arr, int l, int r, int iterations) {
+        int licznik = 0;
+
+        if (iterations <= 0) {
+            iterations = 1000000000;
+        }
         if (l < r) {
+            licznik++;
+            if (licznik >= iterations) {
+                return arr;
+            }
             int m = l + (r-l)/2;
 
-            sortAsStringsMQ(arr, l, m);
-            sortAsStringsMQ(arr, m + 1, r);
+            sortAsStringsMQ(arr, l, m, iterations);
+            sortAsStringsMQ(arr, m + 1, r, iterations);
 
             mergeString(arr, l, m, r);
         }

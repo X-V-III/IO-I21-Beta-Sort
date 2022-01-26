@@ -14,6 +14,8 @@ public class SortResponse {
      * Konstruktor klasy SortResponse.
      * @param sortedArray Posortowany ciag obiektow.
      * @param reports Reporty dzialania algorytmow.
+     * @param bestAlgorithm Najlepszy algorytm.
+     * @param bestTimeElapsed Najszybszy czas wykonania.
      * */
     public SortResponse(String[] sortedArray, Report[] reports, String bestAlgorithm, long bestTimeElapsed) {
         this.sortedArray = sortedArray;
@@ -24,6 +26,7 @@ public class SortResponse {
 
     /**
      * Getter posortowanego ciagu obiektow.
+     * @return Posortowany ciąg.
      */
     public String[] getSortedArray() {
         return sortedArray;
@@ -31,6 +34,7 @@ public class SortResponse {
 
     /**
      * Setter posortowanego ciagu obiektow.
+     * @param sortedArray  Posortowany ciąg.
      */
     public void setSortedArray(String[] sortedArray) {
         this.sortedArray = sortedArray;
@@ -38,6 +42,7 @@ public class SortResponse {
 
     /**
      * Getter reportow.
+     * @return Reporty dzialania algorytmow.
      */
     public Report[] getReports() {
         return reports;
@@ -45,6 +50,7 @@ public class SortResponse {
 
     /**
      * Getter reportow.
+     * @param reports Reporty dzialania algorytmow.
      */
     public void setReports(Report[] reports) {
         this.reports = reports;
@@ -52,6 +58,7 @@ public class SortResponse {
 
     /**
      * Getter bestTimeElapsed.
+     * @return Najszybszy czas wykonania.
      */
     public long getBestTimeElapsed() {
         return bestTimeElapsed;
@@ -59,6 +66,7 @@ public class SortResponse {
 
     /**
      * Setter bestTimeElapsed.
+     * @param bestTimeElapsed Najszybszy czas wykonania.
      */
     public void setBestTimeElapsed(long bestTimeElapsed) {
         this.bestTimeElapsed = bestTimeElapsed;
@@ -66,6 +74,7 @@ public class SortResponse {
 
     /**
      * Getter bestAlgorithm.
+     * @return Najlepszy algorytm.
      */
     public String getBestAlgorithm() {
         return bestAlgorithm;
@@ -73,6 +82,7 @@ public class SortResponse {
 
     /**
      * Setter bestAlgorithm.
+     * @param bestAlgorithm Najlepszy algorytm.
      */
     public void setBestAlgorithm(String bestAlgorithm) {
         this.bestAlgorithm = bestAlgorithm;

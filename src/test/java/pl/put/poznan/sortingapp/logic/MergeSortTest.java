@@ -1,33 +1,63 @@
-//package pl.put.poznan.sortingapp.logic;
-//
-//import org.junit.jupiter.api.Assertions;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
-//
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//class MergeSortTest {
-//
-//    private MergeSort m;
-//
-//    @BeforeEach
-//    void setup(){
-//        m = new MergeSort();
-//    }
-//
-//    @Test
-//    void sortAsIntegers() {
-//        String[] original = {"5","1", "4", "2", "8"};
-//        String[] sorted = {"1","2","4","5","8"};
-//        Assertions.assertArrayEquals(sorted, m.sortAsIntegers(original, 0 ,original.length - 1));
-//    }
-//
-//    @Test
-//    void sortAsStrings() {
-//        String[] original = {"tata","mama", "ala"};
-//        String[] sorted = {"ala","mama","tata"};
-//        Assertions.assertArrayEquals(sorted, m.sortAsStrings(original, 0 ,original.length - 1));
-//    }
-//
-//
-//}
+package pl.put.poznan.sortingapp.logic;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+
+class MergeSortTest {
+
+    private MergeSort m;
+    private final String[] original = {"5", "1", "4", "2", "8"};
+    private int iterations = 0;
+
+    @BeforeEach
+    void setup(){
+        InputList inputList = new InputList(original);
+        m = new MergeSort(inputList);
+    }
+
+    @Test
+    void sortAsIntegers() {
+        String[] sorted = {"1","2","4","5","8"};
+        assertEquals(Arrays.toString(sorted), Arrays.toString(m.sortAsIntegers(iterations)));
+    }
+
+    @Test
+    void sortAsStrings() {
+        String[] original = {"tata","mama", "ala"};
+        InputList inputList = new InputList(original);
+        m = new MergeSort(inputList);
+        String[] sorted = {"ala","mama","tata"};
+        assertEquals(Arrays.toString(sorted), Arrays.toString(m.sortAsStrings(iterations)));
+    }
+
+    @Test
+    public void mergeSortMockInt() throws Exception {
+        InputList mockObject = mock(InputList.class);
+        String[] sorted = {"1", "2", "4", "5", "8"};
+        when(mockObject.getArr()).thenReturn(new String[]{"5", "1", "4", "2", "8"});
+        MergeSort testedObject = new MergeSort(mockObject);
+        String[] result = testedObject.sortAsIntegers(iterations);
+        verify(mockObject).getArr();
+        Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
+    }
+
+    @Test
+    public void mergeSortMockStr() throws Exception {
+        InputList mockObject = mock(InputList.class);
+        String[] sorted = {"ala", "mama", "tata"};
+        when(mockObject.getArr()).thenReturn(new String[]{"tata", "mama", "ala"});
+        MergeSort testedObject = new MergeSort(mockObject);
+        String[] result = testedObject.sortAsStrings(iterations);
+        verify(mockObject).getArr();
+        Assertions.assertEquals(Arrays.toString(sorted), Arrays.toString(result));
+    }
+
+
+}

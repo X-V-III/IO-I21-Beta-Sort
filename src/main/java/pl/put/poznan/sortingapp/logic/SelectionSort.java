@@ -12,11 +12,21 @@ public class SelectionSort extends SortingDecorator {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako String.
      * @return Posortowany ciag obiektow.
+     * @param iterations  liczba iteracji sortowania.
      */
     @Override
-    public String[] sortAsStrings() {
+    public String[] sortAsStrings(int iterations) {
         String[] arr = this.listInput.getArr();
+        int licznik = 0;
+
+        if (iterations <= 0) {
+            iterations = 1000000000;
+        }
         for (int i = 0; i < arr.length - 1; i++) {
+            licznik++;
+            if (licznik >= iterations) {
+                return arr;
+            }
             int min_index = i;
 
             for (int j = i + 1; j < arr.length; j++)
@@ -33,11 +43,21 @@ public class SelectionSort extends SortingDecorator {
     /**
      * Metoda sortujace podany ciag obiektow typu String jako Integer.
      * @return Posortowany ciag obiektow.
+     * @param iterations  liczba iteracji sortowania.
      */
     @Override
-    public String[] sortAsIntegers() {
+    public String[] sortAsIntegers(int iterations) {
         String[] arr = this.listInput.getArr();
+        int licznik = 0;
+
+        if (iterations <= 0) {
+            iterations = 1000000000;
+        }
         for (int i = 0; i < arr.length - 1; i++) {
+            licznik++;
+            if (licznik >= iterations) {
+                return arr;
+            }
             int min_index = i;
 
             for (int j = i + 1; j < arr.length; j++)
