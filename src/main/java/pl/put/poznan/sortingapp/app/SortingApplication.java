@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Klasa SortingApplication zawierajaca glowna metode rozruchowa main.
  *
- * @version 1.0
+ * @version 2.0
  */
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.sortingapp.rest"})
 public class SortingApplication {
