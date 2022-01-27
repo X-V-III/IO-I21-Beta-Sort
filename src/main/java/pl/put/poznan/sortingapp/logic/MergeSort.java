@@ -3,7 +3,7 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego MergeSort.
  */
-public class MergeSort extends SortingDecorator{
+public class MergeSort extends SortingStrategy {
 
     public MergeSort(InputList InputList) {
         super(InputList);

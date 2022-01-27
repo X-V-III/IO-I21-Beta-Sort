@@ -3,7 +3,7 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedaca implementacja algorytmu sortujacego SelectionSort.
  */
-public class SelectionSort extends SortingDecorator {
+public class SelectionSort extends SortingStrategy {
 
     public SelectionSort(InputList listInput) {
         super(listInput);

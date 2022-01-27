@@ -1,11 +1,9 @@
 package pl.put.poznan.sortingapp.logic;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
-
 /**
  * Klasa bedaca implementacja algorytmu sortujacego BubbleSort.
  */
-public class BubbleSort extends SortingDecorator {
+public class BubbleSort extends SortingStrategy {
 
     public BubbleSort(InputList InputList) {
         super(InputList);

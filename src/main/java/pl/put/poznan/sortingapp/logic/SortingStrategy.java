@@ -1,10 +1,10 @@
 package pl.put.poznan.sortingapp.logic;
 
-public class SortingDecorator implements SortingAlgorithm{
+public class SortingStrategy implements SortingAlgorithm{
 
     protected InputList listInput;
 
-    public SortingDecorator(InputList listInput){
+    public SortingStrategy(InputList listInput){
         this.listInput = listInput;
     }
 

@@ -3,7 +3,7 @@ package pl.put.poznan.sortingapp.logic;
 /**
  * Klasa bedąca implementacją algorytmu sortującego HeapSort.
  */
-public class HeapSort extends SortingDecorator {
+public class HeapSort extends SortingStrategy {
 
     public HeapSort(InputList InputList) {
         super(InputList);

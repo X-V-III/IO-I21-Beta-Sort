@@ -80,11 +80,13 @@ public class SortingApplicationController {
                         if (sortAs.compareToIgnoreCase("String") == 0) {
                             SelectionSort autoI = new SelectionSort(new InputList(original));
                             autoI.sort(sortAs, iterations);
+                            algName = "selection";
                             break;
                         }
                         else if (sortAs.compareToIgnoreCase("Integer") == 0) {
                             QuickSort autoI = new QuickSort(new InputList(original));
                             autoI.sort(sortAs, iterations);
+                            algName = "quick";
                             break;
                         }
 
